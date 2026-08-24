@@ -164,7 +164,9 @@
      and a captain-style hat, matching the general shipwrecked-sailor
      archetype rather than any specific character's exact art. */
   .castaway {
-    position: absolute; bottom: 33.5%; left: 20%; width: 16px; height: 28px;
+    position: absolute; bottom: 44%; left: 34%; width: 16px; height: 28px;
+    transform-origin: bottom center;
+    transform: scale(1.9);
     animation: walk 7s ease-in-out infinite;
   }
   .castaway .hat {
@@ -204,7 +206,13 @@
     background: #7a5a3a;
     border-radius: 1px 1px 3px 3px;
   }
-  @keyframes walk { 0% { left: 18%; transform: scaleX(1); } 45% { left: 40%; transform: scaleX(1); } 50% { transform: scaleX(-1); } 95% { left: 18%; transform: scaleX(-1); } 100% { left: 18%; transform: scaleX(1); } }
+  @keyframes walk {
+    0%   { left: 34%; transform: scale(1.9) scaleX(1); }
+    45%  { left: 58%; transform: scale(1.9) scaleX(1); }
+    50%  { transform: scale(1.9) scaleX(-1); }
+    95%  { left: 34%; transform: scale(1.9) scaleX(-1); }
+    100% { left: 34%; transform: scale(1.9) scaleX(1); }
+  }
 
   .scanlines {
     position: absolute; inset: 0; pointer-events: none; opacity: 0;
@@ -325,8 +333,8 @@
           <div class="frond f2"></div>
           <div class="trunk"></div>
           <div class="island"></div>
-          <div class="castaway"><div class="hat"></div><div class="head"></div><div class="beard"></div><div class="body"></div><div class="shorts"></div></div>
           <div class="sea"></div>
+          <div class="castaway"><div class="hat"></div><div class="head"></div><div class="beard"></div><div class="body"></div><div class="shorts"></div></div>
           <div class="scanlines"></div>
           <div class="vignette"></div>
         </div>
