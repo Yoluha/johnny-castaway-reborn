@@ -1,0 +1,9 @@
+*.o
+*.exe
+Makefile
+jc_reborn
+RESOURCE.MAP
+RESOURCE.001
+*.wav
+.jc_reborn
+dump/

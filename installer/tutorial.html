@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Johnny Castaway Reborn — Tutorial</title>
+<style>
+  @page { margin: 20mm 18mm; }
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #1a1a1a;
+    line-height: 1.5;
+    font-size: 13px;
+  }
+  h1 {
+    font-size: 26px;
+    color: #0b3d6b;
+    border-bottom: 3px solid #0b3d6b;
+    padding-bottom: 8px;
+    margin-top: 0;
+  }
+  h2 {
+    font-size: 19px;
+    color: #0b3d6b;
+    margin-top: 34px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 4px;
+  }
+  h3 {
+    font-size: 15px;
+    color: #14507f;
+    margin-top: 20px;
+  }
+  .lang-section {
+    page-break-before: always;
+  }
+  .lang-section:first-of-type {
+    page-break-before: avoid;
+  }
+  .subtitle {
+    color: #555;
+    font-size: 14px;
+    margin-top: -6px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 12px 0 20px 0;
+    font-size: 12px;
+  }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 6px 9px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: #0b3d6b;
+    color: white;
+  }
+  tr:nth-child(even) td {
+    background: #f4f7fa;
+  }
+  code {
+    background: #eef2f6;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-family: Consolas, monospace;
+    font-size: 12px;
+  }
+  .compare {
+    display: flex;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .compare-box {
+    flex: 1;
+    border: 2px solid #0b3d6b;
+    border-radius: 8px;
+    padding: 12px 16px;
+  }
+  .compare-box.wallpaper {
+    border-color: #b0530c;
+  }
+  .compare-box h3 {
+    margin-top: 0;
+  }
+  .compare-box.wallpaper h3 {
+    color: #b0530c;
+  }
+  .note {
+    background: #fff8e1;
+    border-left: 4px solid #e0a800;
+    padding: 8px 14px;
+    margin: 14px 0;
+  }
+  .steps {
+    counter-reset: step;
+  }
+  .steps li {
+    margin-bottom: 10px;
+  }
+  ul, ol {
+    margin: 8px 0;
+    padding-left: 24px;
+  }
+  .footer {
+    margin-top: 30px;
+    font-size: 11px;
+    color: #777;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================= PORTUGUES ============================= -->
+<div class="lang-section">
+<h1>Johnny Castaway Reborn</h1>
+<div class="subtitle">Tutorial completo — Portugues</div>
+
+<h2>Protetor de ecra vs. Live Wallpaper — qual e a diferenca?</h2>
+<p>Sao duas formas diferentes de mostrar o Johnny Castaway. Podes usar uma, outra, ou as duas ao mesmo tempo (nao entram em conflito).</p>
+
+<div class="compare">
+  <div class="compare-box">
+    <h3>Protetor de ecra</h3>
+    <p>So aparece quando o computador fica <b>inativo</b> (sem mexer no rato/teclado) durante o tempo que definires em Definicoes do Windows. Cobre o ecra inteiro. Assim que mexes no rato ou premes uma tecla, desaparece e volta ao ambiente de trabalho normal. Instalado diretamente por este instalador.</p>
+  </div>
+  <div class="compare-box wallpaper">
+    <h3>Live Wallpaper</h3>
+    <p>Fica <b>sempre visivel</b>, por baixo dos icones do ambiente de trabalho, como se fosse o proprio fundo de ecra — mesmo enquanto estas a trabalhar, com janelas abertas por cima. Nao desaparece quando mexes no rato. Precisa do <b>Wallpaper Engine</b> (Steam, gratuito) — ver secao dedicada mais abaixo.</p>
+  </div>
+</div>
+
+<h2>Como instalar</h2>
+<p>Ao correr o instalador, chegas a uma pagina onde escolhes o que instalar:</p>
+<ul>
+  <li><b>Motor Johnny Castaway</b> — obrigatorio, e o programa em si.</li>
+  <li><b>Protetor de ecra do Windows</b> — regista-o em Definicoes &gt; Personalizacao &gt; Ecra de bloqueio &gt; Protetor de ecra, para que apareca na lista.</li>
+  <li><b>Obter ficheiros do jogo original</b> — pede a imagem da disquete original (ver secao seguinte).</li>
+</ul>
+<p>Para live wallpaper, nao ha nada para marcar aqui — segue a secao "Live Wallpaper com o Wallpaper Engine" mais abaixo depois de instalares.</p>
+
+<h2>Como configurar</h2>
+<p>Ha um dialogo grafico com todas as opcoes. Para o abrir:</p>
+<ul>
+  <li>No Menu Iniciar: <b>Johnny Castaway Reborn &gt; Configurar</b></li>
+  <li>Ou em Definicoes &gt; Personalizacao &gt; Protetor de ecra &gt; escolhe "Johnny Castaway Reborn" &gt; botao "Definicoes..."</li>
+</ul>
+<p>O dialogo tem um seletor de <b>idioma</b> no topo (Portugues/English/Espanol) que traduz tudo instantaneamente. Os campos disponiveis:</p>
+
+<table>
+<tr><th>Campo</th><th>O que faz</th></tr>
+<tr><td>Dia da historia</td><td>1 a 11 — fixa a historia num dia especifico da narrativa</td></tr>
+<tr><td>Velocidade</td><td>Percentagem da velocidade normal (100=normal, 200=dobro)</td></tr>
+<tr><td>Feriado</td><td>0=automatico (deteta pela data), 1=Halloween, 2=St Patrick, 3=Natal, 4=Ano Novo</td></tr>
+<tr><td>Noite</td><td>0=automatico (deteta pela hora), 1=forcar noite, 2=forcar dia</td></tr>
+<tr><td>Escala</td><td>0=automatico, -1=preencher o ecra (distorce), -2=ajustar mantendo proporcao, 1-N=fator fixo</td></tr>
+<tr><td>Monitor</td><td>Em qual ecra aparece, quando tens mais que um (ve a lista mostrada no proprio dialogo)</td></tr>
+<tr><td>Modo</td><td>0=so um monitor, 1=clone (igual em todos), 2=extend (esticado por todos)</td></tr>
+<tr><td>Dispositivo de audio</td><td>Por onde sai o som, quando tens mais que uma saida</td></tr>
+<tr><td>Filtro CRT</td><td>Efeito de scanlines, para um visual mais retro</td></tr>
+<tr><td>Saltar introducao</td><td>Vai direto para a historia, sem mostrar o ecra inicial</td></tr>
+</table>
+
+<p>Depois de escolher, carrega em <b>OK</b> — fica guardado automaticamente e aplica-se da proxima vez que o protetor de ecra ou o live wallpaper (via Wallpaper Engine) corram.</p>
+
+<h2>Como obter os ficheiros do jogo original</h2>
+<p>RESOURCE.MAP e RESOURCE.001 sao propriedade da Sierra/Dynamix e nao vem incluidos. Fonte conhecida com a imagem da disquete original:</p>
+<p style="text-align:center; margin: 14px 0;"><a href="https://archive.org/details/000580-ScreenAnticsJohnnyCastaway"><code>archive.org/details/000580-ScreenAnticsJohnnyCastaway</code></a></p>
+<p>No Menu Iniciar, escolhe <b>"Obter ficheiros do jogo original"</b> e segue os passos:</p>
+<ol class="steps">
+  <li>Descarrega a imagem da disquete original a partir do link acima</li>
+  <li>Cola o caminho do ficheiro quando pedido — aceita .7z, .img, ou uma pasta ja extraida</li>
+  <li>O programa extrai e descomprime tudo automaticamente</li>
+  <li>No fim, tambem pergunta se queres os sons originais (descarregados do projeto JCOS)</li>
+</ol>
+<div class="note">Se este link deixar de funcionar no futuro, procura por "Johnny Castaway 1992 floppy disk image" no proprio Internet Archive (archive.org) ou noutros arquivos de software antigo — o ficheiro e a imagem de disquete original do "Screen Antics: Johnny Castaway".</div>
+
+<h2>Live Wallpaper com o Wallpaper Engine (tutorial completo)</h2>
+<p>O Wallpaper Engine (Steam, ~2€ ou gratuito em promocoes frequentes) e a forma recomendada de teres o Johnny Castaway como fundo animado. Integra-se diretamente com o sistema de wallpapers do Windows atraves de um mecanismo suportado oficialmente, em vez de depender de truques nao documentados que podem parar de funcionar a qualquer atualizacao do Windows.</p>
+
+<h3>Passo 1 — Localiza o jc_reborn.exe</h3>
+<p>Normalmente esta em <code>C:\Program Files\Johnny Castaway Reborn\jc_reborn.exe</code>.</p>
+<p>Dica rapida: no Menu Iniciar, clica com o botao direito em <b>"Johnny Castaway"</b> &gt; <b>Mais</b> &gt; <b>Abrir localizacao do ficheiro</b> — abre logo o Explorador nessa pasta.</p>
+
+<h3>Passo 2 — Abre o Wallpaper Engine</h3>
+<p>Pelo icone na bandeja do sistema (junto ao relogio), ou pela Biblioteca do Steam &gt; Wallpaper Engine &gt; Jogar.</p>
+
+<h3>Passo 3 — Cria um wallpaper do tipo "Application"</h3>
+<p>No separador <b>Editor</b> (topo da janela do Wallpaper Engine), clica em <b>Create</b> (ou "Criar"), depois escolhe <b>Application</b> (ou "Aplicativo") na lista de tipos de wallpaper.</p>
+
+<h3>Passo 4 — Aponta para o executavel</h3>
+<p>Vai aparecer um campo para escolher o ficheiro. Navega ate ao <code>jc_reborn.exe</code> do Passo 1 e seleciona-o.</p>
+
+<h3>Passo 5 — Argumentos de linha de comandos</h3>
+<p>Ha um campo de texto "Command line arguments" (ou "Argumentos"). Escreve exatamente:</p>
+<p><code>window nointro</code></p>
+<ul>
+  <li><code>window</code> e essencial — sem isto, o programa tenta abrir em ecra inteiro e o Wallpaper Engine nao consegue embutir a janela corretamente.</li>
+  <li><code>nointro</code> e opcional, mas evita ver o ecra de introducao sempre que o Wallpaper Engine reinicia o wallpaper.</li>
+</ul>
+<p>Podes combinar com outras opcoes, por exemplo <code>window nointro crt</code> (filtro CRT) ou <code>window nointro day=5</code> (fixa o dia 5 da historia) — ver a tabela de opcoes de linha de comandos mais abaixo.</p>
+
+<h3>Passo 6 — Aplica o wallpaper</h3>
+<p>O wallpaper criado aparece na tua biblioteca do Wallpaper Engine (separador "My Wallpapers"/"Meus Wallpapers"). Clica-lhe com o botao direito e escolhe <b>Apply to Monitor</b>, ou faz duplo-clique para aplicar ao monitor principal.</p>
+<p>Se tens varios monitores (incluindo um em modo retrato/vertical), podes aplicar o Johnny Castaway só a um deles e manter outro wallpaper nos restantes — botao direito &gt; "Apply to Monitor 1/2/3".</p>
+
+<h3>Resolucao de problemas</h3>
+<p><b>Aparece ecra preto ou nao acontece nada:</b></p>
+<ul>
+  <li>Confirma que <code>RESOURCE.MAP</code> e <code>RESOURCE.001</code> estao na MESMA pasta que o <code>jc_reborn.exe</code> — o Wallpaper Engine corre o programa a partir dessa pasta.</li>
+  <li>Confirma que escreveste <code>window</code> nos argumentos.</li>
+</ul>
+<p><b>O wallpaper aparece esticado ou cortado:</b> acrescenta <code>scale=fit</code> aos argumentos (<code>window nointro scale=fit</code>) para ajustar mantendo a proporcao.</p>
+<p><b>Queres mudar definicoes (dia, velocidade, etc.) depois de aplicado:</b> usa o atalho "Configurar" no Menu Iniciar (abre o dialogo grafico) — aplica-se da proxima vez que o Wallpaper Engine recarregar o wallpaper. Ou edita diretamente os argumentos no proprio Wallpaper Engine.</p>
+
+<h2>Opcoes de linha de comandos</h2>
+<table>
+<tr><th>Opcao</th><th>O que faz</th></tr>
+<tr><td><code>jc_reborn.exe</code></td><td>Ecra inteiro, historia completa</td></tr>
+<tr><td><code>window</code></td><td>Corre em janela em vez de ecra inteiro (usar sempre com o Wallpaper Engine)</td></tr>
+<tr><td><code>monitors</code></td><td>Lista os monitores detetados</td></tr>
+<tr><td><code>audiodevices</code></td><td>Lista os dispositivos de audio</td></tr>
+<tr><td><code>/c</code></td><td>Abre o dialogo de configuracao</td></tr>
+<tr><td><code>speed=N</code></td><td>Percentagem de velocidade</td></tr>
+<tr><td><code>day=1..11</code></td><td>Fixa o dia da historia</td></tr>
+<tr><td><code>scale=fit</code> / <code>fill</code></td><td>Modo de escala (ver dialogo)</td></tr>
+<tr><td><code>crt</code></td><td>Ativa o filtro CRT</td></tr>
+<tr><td><code>nointro</code></td><td>Salta o ecra de introducao</td></tr>
+<tr><td><code>help</code></td><td>Lista todas as opcoes disponiveis</td></tr>
+</table>
+
+<h2>Precisas de ajuda?</h2>
+<p>Se tiveres duvidas, problemas a instalar, ou sugestoes, contacta:</p>
+<p><b>Lucas Yoshiki Amaral</b> — <a href="mailto:yoluha91@gmail.com">yoluha91@gmail.com</a></p>
+
+<div class="footer">Johnny Castaway Reborn — projeto de fas, nao-comercial. Ver DISCLAIMER.txt / o aviso legal no LEIA-ME para os detalhes.</div>
+</div>
+
+
+<!-- ============================= ENGLISH ============================= -->
+<div class="lang-section">
+<h1>Johnny Castaway Reborn</h1>
+<div class="subtitle">Full tutorial — English</div>
+
+<h2>Screensaver vs. Live Wallpaper — what's the difference?</h2>
+<p>These are two different ways to show Johnny Castaway. You can use one, the other, or both at the same time (they don't conflict).</p>
+
+<div class="compare">
+  <div class="compare-box">
+    <h3>Screensaver</h3>
+    <p>Only appears when the computer is <b>idle</b> (no mouse/keyboard activity) for the time you set in Windows Settings. Covers the whole screen. As soon as you move the mouse or press a key, it disappears and you're back to the normal desktop. Installed directly by this installer.</p>
+  </div>
+  <div class="compare-box wallpaper">
+    <h3>Live Wallpaper</h3>
+    <p>Stays <b>always visible</b>, behind the desktop icons, as if it were the desktop background itself — even while you're working, with windows open on top of it. It does not disappear when you move the mouse. Requires <b>Wallpaper Engine</b> (Steam) — see the dedicated section below.</p>
+  </div>
+</div>
+
+<h2>How to install</h2>
+<p>When running the installer, you'll reach a page where you choose what to install:</p>
+<ul>
+  <li><b>Johnny Castaway engine</b> — required, this is the program itself.</li>
+  <li><b>Windows screensaver</b> — registers it in Settings &gt; Personalization &gt; Lock screen &gt; Screen saver, so it shows up in the list.</li>
+  <li><b>Get the original game files</b> — asks for the original floppy disk image (see next section).</li>
+</ul>
+<p>For live wallpaper, there's nothing to check here — follow the "Live Wallpaper with Wallpaper Engine" section below after installing.</p>
+
+<h2>How to configure</h2>
+<p>There's a graphical dialog with all the options. To open it:</p>
+<ul>
+  <li>From the Start Menu: <b>Johnny Castaway Reborn &gt; Configurar</b></li>
+  <li>Or via Settings &gt; Personalization &gt; Screen saver &gt; choose "Johnny Castaway Reborn" &gt; "Settings..." button</li>
+</ul>
+<p>The dialog has a <b>language</b> selector at the top (Portugues/English/Espanol) that translates everything instantly. Available fields:</p>
+
+<table>
+<tr><th>Field</th><th>What it does</th></tr>
+<tr><td>Story day</td><td>1 to 11 — pins the story to a specific day in the narrative</td></tr>
+<tr><td>Speed</td><td>Percent of normal speed (100=normal, 200=double)</td></tr>
+<tr><td>Holiday</td><td>0=auto (detects from date), 1=Halloween, 2=St Patrick, 3=Christmas, 4=New Year</td></tr>
+<tr><td>Night</td><td>0=auto (detects from time), 1=force night, 2=force day</td></tr>
+<tr><td>Scale</td><td>0=auto, -1=fill screen (distorts), -2=fit keeping aspect ratio, 1-N=fixed factor</td></tr>
+<tr><td>Monitor</td><td>Which screen it appears on, when you have more than one (see the list shown in the dialog itself)</td></tr>
+<tr><td>Mode</td><td>0=single monitor, 1=clone (same on all), 2=extend (stretched across all)</td></tr>
+<tr><td>Audio device</td><td>Which output it plays through, when you have more than one</td></tr>
+<tr><td>CRT filter</td><td>Scanline effect, for a more retro look</td></tr>
+<tr><td>Skip intro</td><td>Goes straight to the story, without showing the opening screen</td></tr>
+</table>
+
+<p>Once you're done, click <b>OK</b> — it's saved automatically and applies next time the screensaver or the live wallpaper (via Wallpaper Engine) run.</p>
+
+<h2>How to get the original game files</h2>
+<p>RESOURCE.MAP and RESOURCE.001 are the property of Sierra/Dynamix and are not included. Known source for the original floppy disk image:</p>
+<p style="text-align:center; margin: 14px 0;"><a href="https://archive.org/details/000580-ScreenAnticsJohnnyCastaway"><code>archive.org/details/000580-ScreenAnticsJohnnyCastaway</code></a></p>
+<p>From the Start Menu, choose <b>"Obter ficheiros do jogo original"</b> and follow the steps:</p>
+<ol class="steps">
+  <li>Download the original floppy disk image from the link above</li>
+  <li>Paste the file path when asked — accepts .7z, .img, or an already-extracted folder</li>
+  <li>The program extracts and decompresses everything automatically</li>
+  <li>At the end, it also asks if you want the original sounds (downloaded from the JCOS project)</li>
+</ol>
+<div class="note">If this link stops working in the future, search for "Johnny Castaway 1992 floppy disk image" on the Internet Archive (archive.org) itself, or other abandonware/software preservation archives — the file is the original floppy disk image for "Screen Antics: Johnny Castaway".</div>
+
+<h2>Live Wallpaper with Wallpaper Engine (full tutorial)</h2>
+<p>Wallpaper Engine (Steam, cheap and frequently on sale/free with promos) is the recommended way to have Johnny Castaway as an animated background. It integrates directly with Windows' wallpaper system through an officially supported mechanism, instead of relying on undocumented tricks that can break with any Windows update.</p>
+
+<h3>Step 1 — Find jc_reborn.exe</h3>
+<p>Usually at <code>C:\Program Files\Johnny Castaway Reborn\jc_reborn.exe</code>.</p>
+<p>Quick tip: from the Start Menu, right-click <b>"Johnny Castaway"</b> &gt; <b>More</b> &gt; <b>Open file location</b> — this opens Explorer right in that folder.</p>
+
+<h3>Step 2 — Open Wallpaper Engine</h3>
+<p>Via the system tray icon (next to the clock), or via your Steam Library &gt; Wallpaper Engine &gt; Play.</p>
+
+<h3>Step 3 — Create an "Application" wallpaper</h3>
+<p>In the <b>Editor</b> tab (top of the Wallpaper Engine window), click <b>Create</b>, then choose <b>Application</b> from the list of wallpaper types.</p>
+
+<h3>Step 4 — Point it at the executable</h3>
+<p>A field will appear to pick the executable file. Browse to the <code>jc_reborn.exe</code> from Step 1 and select it.</p>
+
+<h3>Step 5 — Command line arguments</h3>
+<p>There's a text field labeled "Command line arguments". Type exactly:</p>
+<p><code>window nointro</code></p>
+<ul>
+  <li><code>window</code> is essential — without it, the program tries to open fullscreen and Wallpaper Engine can't embed the window correctly.</li>
+  <li><code>nointro</code> is optional, but avoids seeing the intro screen every time Wallpaper Engine restarts the wallpaper.</li>
+</ul>
+<p>You can combine other options too, e.g. <code>window nointro crt</code> (CRT filter) or <code>window nointro day=5</code> (pins story day 5) — see the command-line options table below.</p>
+
+<h3>Step 6 — Apply the wallpaper</h3>
+<p>The created wallpaper appears in your Wallpaper Engine library ("My Wallpapers" tab). Right-click it and choose <b>Apply to Monitor</b>, or double-click to apply to your main monitor.</p>
+<p>If you have multiple monitors (including a portrait/vertical one), you can apply Johnny Castaway to just one and keep a different wallpaper on the rest — right-click &gt; "Apply to Monitor 1/2/3".</p>
+
+<h3>Troubleshooting</h3>
+<p><b>Black screen or nothing happens:</b></p>
+<ul>
+  <li>Make sure <code>RESOURCE.MAP</code> and <code>RESOURCE.001</code> are in the SAME folder as <code>jc_reborn.exe</code> — Wallpaper Engine runs the program from that folder.</li>
+  <li>Make sure you typed <code>window</code> in the arguments.</li>
+</ul>
+<p><b>The wallpaper looks stretched or cropped:</b> add <code>scale=fit</code> to the arguments (<code>window nointro scale=fit</code>) to fit while keeping the aspect ratio.</p>
+<p><b>Want to change settings (day, speed, etc.) after applying:</b> use the "Configurar" shortcut in the Start Menu (opens the graphical dialog) — it applies next time Wallpaper Engine reloads the wallpaper. Or edit the arguments directly in Wallpaper Engine itself.</p>
+
+<h2>Command-line options</h2>
+<table>
+<tr><th>Option</th><th>What it does</th></tr>
+<tr><td><code>jc_reborn.exe</code></td><td>Fullscreen, full story</td></tr>
+<tr><td><code>window</code></td><td>Runs windowed instead of fullscreen (always use with Wallpaper Engine)</td></tr>
+<tr><td><code>monitors</code></td><td>Lists detected monitors</td></tr>
+<tr><td><code>audiodevices</code></td><td>Lists audio devices</td></tr>
+<tr><td><code>/c</code></td><td>Opens the configuration dialog</td></tr>
+<tr><td><code>speed=N</code></td><td>Speed percentage</td></tr>
+<tr><td><code>day=1..11</code></td><td>Pins the story day</td></tr>
+<tr><td><code>scale=fit</code> / <code>fill</code></td><td>Scale mode (see dialog)</td></tr>
+<tr><td><code>crt</code></td><td>Enables the CRT filter</td></tr>
+<tr><td><code>nointro</code></td><td>Skips the intro screen</td></tr>
+<tr><td><code>help</code></td><td>Lists all available options</td></tr>
+</table>
+
+<h2>Need help?</h2>
+<p>If you have questions, installation problems, or suggestions, contact:</p>
+<p><b>Lucas Yoshiki Amaral</b> — <a href="mailto:yoluha91@gmail.com">yoluha91@gmail.com</a></p>
+
+<div class="footer">Johnny Castaway Reborn — non-commercial fan project. See DISCLAIMER.txt / the legal notice in LEIA-ME for details.</div>
+</div>
+
+
+<!-- ============================= ESPANOL ============================= -->
+<div class="lang-section">
+<h1>Johnny Castaway Reborn</h1>
+<div class="subtitle">Tutorial completo — Espanol</div>
+
+<h2>Protector de pantalla vs. Live Wallpaper — cual es la diferencia?</h2>
+<p>Son dos formas diferentes de mostrar el Johnny Castaway. Puedes usar una, otra, o ambas a la vez (no entran en conflicto).</p>
+
+<div class="compare">
+  <div class="compare-box">
+    <h3>Protector de pantalla</h3>
+    <p>Solo aparece cuando el ordenador queda <b>inactivo</b> (sin usar el raton/teclado) durante el tiempo que definas en la Configuracion de Windows. Cubre toda la pantalla. En cuanto mueves el raton o pulsas una tecla, desaparece y vuelves al escritorio normal. Instalado directamente por este instalador.</p>
+  </div>
+  <div class="compare-box wallpaper">
+    <h3>Live Wallpaper</h3>
+    <p>Queda <b>siempre visible</b>, detras de los iconos del escritorio, como si fuera el propio fondo de pantalla — incluso mientras trabajas, con ventanas abiertas encima. No desaparece cuando mueves el raton. Necesita <b>Wallpaper Engine</b> (Steam) — ver la seccion dedicada mas abajo.</p>
+  </div>
+</div>
+
+<h2>Como instalar</h2>
+<p>Al ejecutar el instalador, llegas a una pagina donde eliges que instalar:</p>
+<ul>
+  <li><b>Motor Johnny Castaway</b> — obligatorio, es el programa en si.</li>
+  <li><b>Protector de pantalla de Windows</b> — lo registra en Configuracion &gt; Personalizacion &gt; Pantalla de bloqueo &gt; Protector de pantalla, para que aparezca en la lista.</li>
+  <li><b>Obtener archivos del juego original</b> — pide la imagen del disquete original (ver siguiente seccion).</li>
+</ul>
+<p>Para live wallpaper, no hay nada que marcar aqui — sigue la seccion "Live Wallpaper con Wallpaper Engine" mas abajo despues de instalar.</p>
+
+<h2>Como configurar</h2>
+<p>Hay un dialogo grafico con todas las opciones. Para abrirlo:</p>
+<ul>
+  <li>Desde el Menu Inicio: <b>Johnny Castaway Reborn &gt; Configurar</b></li>
+  <li>O en Configuracion &gt; Personalizacion &gt; Protector de pantalla &gt; elige "Johnny Castaway Reborn" &gt; boton "Configuracion..."</li>
+</ul>
+<p>El dialogo tiene un selector de <b>idioma</b> en la parte superior (Portugues/English/Espanol) que traduce todo al instante. Campos disponibles:</p>
+
+<table>
+<tr><th>Campo</th><th>Que hace</th></tr>
+<tr><td>Dia de la historia</td><td>1 a 11 — fija la historia en un dia especifico de la narrativa</td></tr>
+<tr><td>Velocidad</td><td>Porcentaje de la velocidad normal (100=normal, 200=doble)</td></tr>
+<tr><td>Festividad</td><td>0=automatico (detecta por la fecha), 1=Halloween, 2=San Patricio, 3=Navidad, 4=Ano Nuevo</td></tr>
+<tr><td>Noche</td><td>0=automatico (detecta por la hora), 1=forzar noche, 2=forzar dia</td></tr>
+<tr><td>Escala</td><td>0=automatico, -1=llenar pantalla (distorsiona), -2=ajustar manteniendo proporcion, 1-N=factor fijo</td></tr>
+<tr><td>Monitor</td><td>En que pantalla aparece, cuando tienes mas de una (ver la lista mostrada en el propio dialogo)</td></tr>
+<tr><td>Modo</td><td>0=un solo monitor, 1=clon (igual en todos), 2=extendido (estirado por todos)</td></tr>
+<tr><td>Dispositivo de audio</td><td>Por donde sale el sonido, cuando tienes mas de una salida</td></tr>
+<tr><td>Filtro CRT</td><td>Efecto de lineas de escaneo, para un aspecto mas retro</td></tr>
+<tr><td>Saltar introduccion</td><td>Va directo a la historia, sin mostrar la pantalla inicial</td></tr>
+</table>
+
+<p>Cuando termines, pulsa <b>OK</b> — se guarda automaticamente y se aplica la proxima vez que corran el protector de pantalla o el live wallpaper (con Wallpaper Engine).</p>
+
+<h2>Como obtener los archivos del juego original</h2>
+<p>RESOURCE.MAP y RESOURCE.001 son propiedad de Sierra/Dynamix y no vienen incluidos. Fuente conocida con la imagen del disquete original:</p>
+<p style="text-align:center; margin: 14px 0;"><a href="https://archive.org/details/000580-ScreenAnticsJohnnyCastaway"><code>archive.org/details/000580-ScreenAnticsJohnnyCastaway</code></a></p>
+<p>Desde el Menu Inicio, elige <b>"Obter ficheiros do jogo original"</b> y sigue los pasos:</p>
+<ol class="steps">
+  <li>Descarga la imagen del disquete original desde el enlace de arriba</li>
+  <li>Pega la ruta del archivo cuando se te pida — acepta .7z, .img, o una carpeta ya extraida</li>
+  <li>El programa extrae y descomprime todo automaticamente</li>
+  <li>Al final, tambien pregunta si quieres los sonidos originales (descargados del proyecto JCOS)</li>
+</ol>
+<div class="note">Si este enlace deja de funcionar en el futuro, busca "Johnny Castaway 1992 floppy disk image" en el propio Internet Archive (archive.org), u otros archivos de preservacion de software antiguo — el archivo es la imagen del disquete original de "Screen Antics: Johnny Castaway".</div>
+
+<h2>Live Wallpaper con Wallpaper Engine (tutorial completo)</h2>
+<p>Wallpaper Engine (Steam, barato y a menudo gratis/en oferta) es la forma recomendada de tener el Johnny Castaway como fondo animado. Se integra directamente con el sistema de fondos de Windows mediante un mecanismo oficialmente soportado, en vez de depender de trucos no documentados que pueden dejar de funcionar con cualquier actualizacion de Windows.</p>
+
+<h3>Paso 1 — Localiza jc_reborn.exe</h3>
+<p>Normalmente esta en <code>C:\Program Files\Johnny Castaway Reborn\jc_reborn.exe</code>.</p>
+<p>Consejo rapido: en el Menu Inicio, haz clic derecho en <b>"Johnny Castaway"</b> &gt; <b>Mas</b> &gt; <b>Abrir ubicacion del archivo</b> — abre el Explorador directamente en esa carpeta.</p>
+
+<h3>Paso 2 — Abre Wallpaper Engine</h3>
+<p>Desde el icono en la bandeja del sistema (junto al reloj), o desde tu Biblioteca de Steam &gt; Wallpaper Engine &gt; Jugar.</p>
+
+<h3>Paso 3 — Crea un fondo de tipo "Application"</h3>
+<p>En la pestana <b>Editor</b> (parte superior de la ventana de Wallpaper Engine), haz clic en <b>Create</b>, y elige <b>Application</b> en la lista de tipos de fondo.</p>
+
+<h3>Paso 4 — Apunta al ejecutable</h3>
+<p>Aparecera un campo para elegir el archivo. Navega hasta el <code>jc_reborn.exe</code> del Paso 1 y seleccionalo.</p>
+
+<h3>Paso 5 — Argumentos de linea de comandos</h3>
+<p>Hay un campo de texto "Command line arguments". Escribe exactamente:</p>
+<p><code>window nointro</code></p>
+<ul>
+  <li><code>window</code> es esencial — sin esto, el programa intenta abrirse en pantalla completa y Wallpaper Engine no puede incrustar la ventana correctamente.</li>
+  <li><code>nointro</code> es opcional, pero evita ver la pantalla de introduccion cada vez que Wallpaper Engine reinicia el fondo.</li>
+</ul>
+<p>Puedes combinar otras opciones, por ejemplo <code>window nointro crt</code> (filtro CRT) o <code>window nointro day=5</code> (fija el dia 5 de la historia) — ver la tabla de opciones de linea de comandos mas abajo.</p>
+
+<h3>Paso 6 — Aplica el fondo</h3>
+<p>El fondo creado aparece en tu biblioteca de Wallpaper Engine (pestana "My Wallpapers"). Haz clic derecho y elige <b>Apply to Monitor</b>, o doble clic para aplicarlo al monitor principal.</p>
+<p>Si tienes varios monitores (incluyendo uno en modo retrato/vertical), puedes aplicar el Johnny Castaway solo a uno y mantener otro fondo en los demas — clic derecho &gt; "Apply to Monitor 1/2/3".</p>
+
+<h3>Solucion de problemas</h3>
+<p><b>Aparece pantalla negra o no pasa nada:</b></p>
+<ul>
+  <li>Confirma que <code>RESOURCE.MAP</code> y <code>RESOURCE.001</code> estan en la MISMA carpeta que <code>jc_reborn.exe</code> — Wallpaper Engine ejecuta el programa desde esa carpeta.</li>
+  <li>Confirma que escribiste <code>window</code> en los argumentos.</li>
+</ul>
+<p><b>El fondo aparece estirado o recortado:</b> anade <code>scale=fit</code> a los argumentos (<code>window nointro scale=fit</code>) para ajustar manteniendo la proporcion.</p>
+<p><b>Quieres cambiar ajustes (dia, velocidad, etc.) despues de aplicarlo:</b> usa el acceso directo "Configurar" en el Menu Inicio (abre el dialogo grafico) — se aplica la proxima vez que Wallpaper Engine recargue el fondo. O edita los argumentos directamente en Wallpaper Engine.</p>
+
+<h2>Opciones de linea de comandos</h2>
+<table>
+<tr><th>Opcion</th><th>Que hace</th></tr>
+<tr><td><code>jc_reborn.exe</code></td><td>Pantalla completa, historia completa</td></tr>
+<tr><td><code>window</code></td><td>Corre en ventana en vez de pantalla completa (usar siempre con Wallpaper Engine)</td></tr>
+<tr><td><code>monitors</code></td><td>Lista los monitores detectados</td></tr>
+<tr><td><code>audiodevices</code></td><td>Lista los dispositivos de audio</td></tr>
+<tr><td><code>/c</code></td><td>Abre el dialogo de configuracion</td></tr>
+<tr><td><code>speed=N</code></td><td>Porcentaje de velocidad</td></tr>
+<tr><td><code>day=1..11</code></td><td>Fija el dia de la historia</td></tr>
+<tr><td><code>scale=fit</code> / <code>fill</code></td><td>Modo de escala (ver dialogo)</td></tr>
+<tr><td><code>crt</code></td><td>Activa el filtro CRT</td></tr>
+<tr><td><code>nointro</code></td><td>Salta la pantalla de introduccion</td></tr>
+<tr><td><code>help</code></td><td>Lista todas las opciones disponibles</td></tr>
+</table>
+
+<h2>Necesitas ayuda?</h2>
+<p>Si tienes dudas, problemas al instalar, o sugerencias, contacta:</p>
+<p><b>Lucas Yoshiki Amaral</b> — <a href="mailto:yoluha91@gmail.com">yoluha91@gmail.com</a></p>
+
+<div class="footer">Johnny Castaway Reborn — proyecto de fans, no comercial. Ver DISCLAIMER.txt / el aviso legal en LEIA-ME para mas detalles.</div>
+</div>
+
+</body>
+</html>

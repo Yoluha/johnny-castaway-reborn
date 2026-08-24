@@ -1,0 +1,772 @@
+<title>Johnny Castaway Reborn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #eef2f6;
+    --ink-soft:   #a9b6c5;
+    --paper:      #10151d;
+    --paper-alt:  #182029;
+    --line:       rgba(255,255,255,0.10);
+    --card:       #1a222c;
+    --sun:        #f0a202;
+    --sun-deep:   #c97a12;
+    --ocean:      #3fc1e0;
+    --driftwood:  #cf9a5c;
+    --night:      #080b10;
+    --font-display: "Baloo 2", ui-rounded, "Segoe UI", sans-serif;
+    --font-body:    "Karla", "Segoe UI", Arial, sans-serif;
+    --font-mono:    "Space Mono", ui-monospace, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  body { overflow-x: hidden; }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    margin: 0 0 0.35em 0;
+    color: var(--ink);
+  }
+
+  p { margin: 0 0 0.9em 0; max-width: 60ch; color: var(--ink-soft); }
+  a { color: inherit; }
+
+  code, .mono { font-family: var(--font-mono); font-size: 0.87em; }
+  code { background: rgba(255,255,255,0.09); padding: 0.12em 0.4em; border-radius: 4px; color: var(--ink); }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--ocean);
+    display: block;
+    margin-bottom: 0.6em;
+  }
+
+  .container { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 52px 0; }
+  section + section { border-top: 1px solid var(--line); }
+
+  /* ============ LANGUAGE SWITCHER ============ */
+  .langbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(16,21,29,0.86);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  .langbar-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 10px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .brand { font-family: var(--font-display); font-weight: 700; font-size: 1rem; }
+  .langswitch { display: flex; gap: 4px; font-family: var(--font-mono); font-size: 0.78rem; }
+  .langswitch button {
+    background: none; border: 1px solid transparent; cursor: pointer;
+    padding: 5px 9px; border-radius: 7px; color: var(--ink-soft); font-family: inherit; font-size: inherit;
+  }
+  .langswitch button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+  .langswitch button:focus-visible { outline: 2px solid var(--ocean); outline-offset: 1px; }
+
+  /* ============ HERO ============ */
+  .hero { padding-top: 56px; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; }
+  .hero h1 { font-size: clamp(2.1rem, 4.6vw, 3rem); font-weight: 800; line-height: 1.05; }
+  .hero .tagline { font-size: 1.08rem; }
+
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+  .btn {
+    font-family: var(--font-display); font-weight: 700; font-size: 0.98rem;
+    padding: 12px 22px; border-radius: 10px; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px; border: 2px solid transparent;
+    transition: transform 0.12s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn:focus-visible { outline: 3px solid var(--ocean); outline-offset: 2px; }
+  .btn-primary { background: var(--sun); color: var(--ink); box-shadow: 0 4px 0 var(--sun-deep); }
+  .btn-primary:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--sun-deep); }
+  .btn-ghost { border-color: var(--ink); color: var(--ink); }
+  .btn-sm { padding: 8px 14px; font-size: 0.85rem; border-radius: 8px; }
+
+  /* ============ ILLUSTRATED SCREEN (original art, animated) ============ */
+  .monitor {
+    background: #dcd6c8; border-radius: 14px 14px 6px 6px; padding: 14px 14px 22px 14px;
+    box-shadow: 0 16px 30px -14px rgba(0,0,0,0.55); position: relative; max-width: 340px; margin: 0 auto;
+  }
+  .monitor::after {
+    content: ""; position: absolute; left: 50%; bottom: -11px; transform: translateX(-50%);
+    width: 70px; height: 12px; background: #bdb49d; border-radius: 3px;
+  }
+  .screen {
+    aspect-ratio: 4/3; border-radius: 5px; overflow: hidden; position: relative;
+    background: linear-gradient(180deg, #79c7e8 0%, #bfe6d8 55%, #e8d9a8 100%);
+    box-shadow: inset 0 0 0 5px #1a1a1a;
+    transition: filter 0.35s ease;
+  }
+  .screen.f-green { filter: grayscale(1) sepia(1) hue-rotate(75deg) saturate(6) brightness(0.95); }
+  .screen.f-amber { filter: grayscale(1) sepia(1) saturate(4) hue-rotate(-12deg) brightness(1.05); }
+  .screen.f-strong { filter: contrast(1.15) brightness(0.8) saturate(1.1); }
+  .screen.f-sepia { filter: sepia(0.65) contrast(0.85) brightness(1.08); }
+
+  .cloud { position: absolute; background: #fff; border-radius: 40px; opacity: 0.85; animation: drift 26s linear infinite; }
+  .cloud::before, .cloud::after { content:""; position:absolute; background:inherit; border-radius:50%; }
+  .c1 { width: 46px; height: 14px; top: 12%; left: -20%; }
+  .c1::before { width: 22px; height: 22px; top: -10px; left: 6px; }
+  .c1::after { width: 16px; height: 16px; top: -6px; left: 26px; }
+  .c2 { width: 32px; height: 10px; top: 24%; left: -40%; animation-delay: -9s; animation-duration: 32s; }
+  .c2::before { width: 16px; height: 16px; top: -7px; left: 5px; }
+
+  @keyframes drift { from { transform: translateX(0); } to { transform: translateX(480px); } }
+
+  .sun-ill {
+    position: absolute; top: 13%; right: 15%; width: 15%; aspect-ratio: 1; border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #ffe08a, var(--sun) 70%);
+    animation: glint 3.4s ease-in-out infinite;
+  }
+  @keyframes glint { 0%,100% { filter: brightness(1); } 50% { filter: brightness(1.18); } }
+
+  .sea { position: absolute; bottom: 0; left: 0; right: 0; height: 42%; background: linear-gradient(180deg, var(--ocean) 0%, #0a4a5c 100%); }
+  .sea::before {
+    content:""; position:absolute; top:-4px; left:0; right:0; height:8px;
+    background: repeating-linear-gradient(90deg, rgba(255,255,255,0.55) 0 18px, transparent 18px 42px);
+    animation: waves 2.6s linear infinite;
+  }
+  @keyframes waves { from { background-position-x: 0; } to { background-position-x: 60px; } }
+
+  .island { position: absolute; bottom: 34%; left: 30%; width: 46%; height: 14%; background: #ead2a3; border-radius: 50% 50% 20% 20% / 90% 90% 20% 20%; }
+  .trunk { position: absolute; bottom: 40%; left: 47%; width: 3%; height: 22%; background: var(--driftwood); border-radius: 2px; transform: rotate(-6deg); }
+  .frond { position: absolute; bottom: 58%; left: 41%; width: 20%; height: 10%; background: #3f7d4a; border-radius: 100% 0 100% 0; }
+  .frond.f2 { transform: scaleX(-1) rotate(8deg); left: auto; right: 32%; background: #366b40; }
+  .frond.f3 { transform: rotate(20deg); background: #4a9256; bottom: 56%; }
+
+  .castaway {
+    position: absolute; bottom: 33.5%; left: 20%; width: 10px; height: 22px;
+    animation: walk 7s ease-in-out infinite;
+  }
+  .castaway .head { width: 7px; height: 7px; border-radius: 50%; background: #3a2b1f; margin: 0 auto; }
+  .castaway .body { width: 4px; height: 12px; background: #b23b3b; margin: 1px auto 0 auto; border-radius: 2px; }
+  @keyframes walk { 0% { left: 18%; transform: scaleX(1); } 45% { left: 40%; transform: scaleX(1); } 50% { transform: scaleX(-1); } 95% { left: 18%; transform: scaleX(-1); } 100% { left: 18%; transform: scaleX(1); } }
+
+  .scanlines {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0;
+    background: repeating-linear-gradient(180deg, rgba(0,0,0,0.35) 0px, rgba(0,0,0,0.35) 1px, transparent 1px, transparent 3px);
+    mix-blend-mode: multiply;
+    transition: opacity 0.3s ease;
+  }
+  .screen.f-crt .scanlines, .screen.f-strong .scanlines { opacity: 1; }
+
+  .vignette {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0;
+    background: radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.55) 100%);
+    transition: opacity 0.3s ease;
+  }
+  .screen.f-strong .vignette { opacity: 1; }
+
+  .carousel-controls { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 14px; }
+  .carousel-controls button {
+    background: var(--card); border: 1px solid var(--line); width: 34px; height: 34px; border-radius: 50%;
+    font-size: 1rem; cursor: pointer; color: var(--ink);
+  }
+  .carousel-controls button:focus-visible { outline: 2px solid var(--ocean); }
+  .filter-label { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-soft); min-width: 148px; text-align: center; }
+
+  /* ============ SECTION HEAD ============ */
+  .section-head { margin-bottom: 30px; }
+  .section-head h2 { font-size: clamp(1.5rem, 3.4vw, 1.9rem); }
+
+  /* ============ FEATURE LIST (no color swatches) ============ */
+  .feat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 4px 28px; }
+  .feat { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .feat h3 { font-size: 1rem; margin-bottom: 0.2em; display: flex; align-items: center; gap: 8px; }
+  .feat h3 svg { width: 18px; height: 18px; stroke: var(--ocean); flex-shrink: 0; }
+  .feat p { font-size: 0.92rem; margin-bottom: 0; }
+
+  /* ============ STEPS ============ */
+  .steps { counter-reset: step; list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+  .steps li { counter-increment: step; display: grid; grid-template-columns: 30px 1fr; gap: 12px; align-items: start; }
+  .steps li::before {
+    content: counter(step); font-family: var(--font-display); font-weight: 700; font-size: 0.95rem;
+    width: 30px; height: 30px; border-radius: 8px; background: var(--paper-alt); border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center; color: var(--ink); flex-shrink: 0;
+  }
+  .steps li p { margin: 2px 0 0 0; font-size: 0.94rem; }
+  .steps li strong { font-family: var(--font-display); font-size: 0.98rem; }
+
+  /* ============ TABLES ============ */
+  .table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--line); }
+  table { border-collapse: collapse; width: 100%; min-width: 480px; background: var(--card); font-size: 0.88rem; }
+  th, td { text-align: left; padding: 9px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; background: var(--paper-alt); }
+  tr:last-child td { border-bottom: none; }
+
+  details.legal { border: 1px solid var(--line); border-radius: 10px; padding: 4px 18px; background: var(--card); margin-bottom: 10px; }
+  details.legal summary { cursor: pointer; font-family: var(--font-display); font-weight: 600; padding: 12px 0; }
+  details.legal p { font-size: 0.88rem; padding-bottom: 14px; max-width: none; }
+
+  /* ============ PROJECT CARDS ============ */
+  .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .proj-card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .proj-icon { font-size: 1.7rem; }
+  .proj-card h3 { font-size: 1.05rem; margin-bottom: 0; }
+  .proj-card p { font-size: 0.9rem; margin-bottom: 4px; }
+  .proj-card .btn { align-self: flex-start; }
+
+  footer { background: var(--night); color: #dfe6f5; padding: 52px 0 34px 0; }
+  footer .container { display: flex; flex-direction: column; gap: 28px; }
+  footer h2 { color: #fff8ec; }
+  footer .meta { font-family: var(--font-mono); font-size: 0.8rem; color: #9aa7c2; text-align: center; }
+  footer a.gh { color: var(--sun); font-weight: 700; text-decoration: none; }
+
+  [data-i18n], [data-lang-only] { }
+  .hide { display: none !important; }
+
+  @media (max-width: 720px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    section { padding: 40px 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cloud, .sun-ill, .sea::before, .castaway { animation: none !important; }
+  }
+</style>
+
+<div class="langbar">
+  <div class="langbar-inner">
+    <span class="brand">🏝️ Johnny Castaway Reborn</span>
+    <div class="langswitch" role="group" aria-label="Language">
+      <button data-set-lang="en" aria-pressed="true">EN</button>
+      <button data-set-lang="pt" aria-pressed="false">PT</button>
+      <button data-set-lang="es" aria-pressed="false">ES</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow" data-i18n="hero.eyebrow"></span>
+      <h1 data-i18n="hero.title"></h1>
+      <p class="tagline" data-i18n="hero.tagline"></p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://github.com/yoluha/johnny-castaway-reborn/releases/latest" data-i18n="hero.download"></a>
+        <a class="btn btn-ghost" href="#install" data-i18n="hero.howto"></a>
+      </div>
+    </div>
+    <div>
+      <div class="monitor">
+        <div class="screen" id="demoScreen">
+          <div class="cloud c1"></div>
+          <div class="cloud c2"></div>
+          <div class="sun-ill"></div>
+          <div class="frond f3"></div>
+          <div class="frond"></div>
+          <div class="frond f2"></div>
+          <div class="trunk"></div>
+          <div class="island"></div>
+          <div class="castaway"><div class="head"></div><div class="body"></div></div>
+          <div class="sea"></div>
+          <div class="scanlines"></div>
+          <div class="vignette"></div>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button id="filterPrev" aria-label="Previous filter">‹</button>
+        <span class="filter-label" id="filterLabel"></span>
+        <button id="filterNext" aria-label="Next filter">›</button>
+      </div>
+      <p class="screen-caption" data-i18n="hero.caption" style="text-align:center; font-size:0.78rem; font-family:var(--font-mono); margin-top:8px;"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="feat.eyebrow"></span>
+      <h2 data-i18n="feat.title"></h2>
+    </div>
+    <div class="feat-grid">
+      <div class="feat">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="9" height="7"/><rect x="13" y="4" width="9" height="7"/><rect x="7" y="15" width="9" height="6"/></svg><span data-i18n="feat.monitors.h"></span></h3>
+        <p data-i18n="feat.monitors.p"></p>
+      </div>
+      <div class="feat">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg><span data-i18n="feat.filters.h"></span></h3>
+        <p data-i18n="feat.filters.p"></p>
+      </div>
+      <div class="feat">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M9 20h6M12 17v3"/></svg><span data-i18n="feat.config.h"></span></h3>
+        <p data-i18n="feat.config.p"></p>
+      </div>
+      <div class="feat">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg><span data-i18n="feat.volume.h"></span></h3>
+        <p data-i18n="feat.volume.p"></p>
+      </div>
+      <div class="feat">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M13 2 4 13h6l-1 9 9-11h-6z"/></svg><span data-i18n="feat.dismiss.h"></span></h3>
+        <p data-i18n="feat.dismiss.p"></p>
+      </div>
+      <div class="feat">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span data-i18n="feat.wallpaper.h"></span></h3>
+        <p data-i18n="feat.wallpaper.p"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INSTALL ================= -->
+<section id="install">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="install.eyebrow"></span>
+      <h2 data-i18n="install.title"></h2>
+    </div>
+    <ol class="steps" id="installSteps"></ol>
+  </div>
+</section>
+
+<!-- ================= ORIGINAL FILES ================= -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="files.eyebrow"></span>
+      <h2 data-i18n="files.title"></h2>
+      <p data-i18n="files.body"></p>
+    </div>
+    <a class="btn btn-ghost" href="https://archive.org/details/000580-ScreenAnticsJohnnyCastaway">archive.org/details/000580-ScreenAnticsJohnnyCastaway</a>
+  </div>
+</section>
+
+<!-- ================= SETTINGS TABLE ================= -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="settings.eyebrow"></span>
+      <h2 data-i18n="settings.title"></h2>
+    </div>
+    <div class="table-wrap">
+      <table id="settingsTable"></table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WALLPAPER ENGINE ================= -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="wp.eyebrow"></span>
+      <h2 data-i18n="wp.title"></h2>
+      <p data-i18n="wp.body"></p>
+    </div>
+    <ol class="steps" id="wpSteps"></ol>
+  </div>
+</section>
+
+<!-- ================= CLI ================= -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="cli.eyebrow"></span>
+      <h2 data-i18n="cli.title"></h2>
+    </div>
+    <div class="table-wrap">
+      <table id="cliTable"></table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LEGAL ================= -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="legal.eyebrow"></span>
+      <h2 data-i18n="legal.title"></h2>
+    </div>
+    <details class="legal" open>
+      <summary data-i18n="legal.summary"></summary>
+      <p data-i18n="legal.body"></p>
+    </details>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <div>
+      <span class="eyebrow" style="color:#9fd6e8;" data-i18n="footer.eyebrow"></span>
+      <h2 data-i18n="footer.title"></h2>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <span class="proj-icon">📐</span>
+        <h3>3D Manager</h3>
+        <p data-i18n="footer.3dmanager"></p>
+        <a class="btn btn-primary btn-sm" href="https://yoluha.github.io/3d-manager/" data-i18n="footer.visit"></a>
+      </div>
+      <div class="proj-card">
+        <span class="proj-icon">🎧</span>
+        <h3>Yoshiki Beats</h3>
+        <p data-i18n="footer.yoshikibeats"></p>
+        <a class="btn btn-primary btn-sm" href="https://www.youtube.com/channel/UClEkyF0yv7Vyh2nRhKlvFlQ" data-i18n="footer.visit"></a>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <a class="gh" href="https://github.com/yoluha/johnny-castaway-reborn" data-i18n="footer.source"></a>
+    </div>
+    <p class="meta" data-i18n="footer.contact"></p>
+    <p class="meta" style="opacity:0.6;">GPL-3.0 · based on jc_reborn &amp; sizious/johnny-castaway-reborn</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var T = {
+    en: {
+      "hero.eyebrow": "Reimplemented engine · Windows 10/11 · 64-bit",
+      "hero.title": "Johnny Castaway Reborn",
+      "hero.tagline": "Sierra's classic 1992 screensaver — the castaway, the island, the seagull, the bottled messages — running again, natively, on modern Windows.",
+      "hero.download": "⬇ Download for Windows",
+      "hero.howto": "How to install",
+      "hero.caption": "original illustration, not a game capture — click ‹ › to see the actual image filters",
+      "feat.eyebrow": "What this is",
+      "feat.title": "A 1992 engine, understood piece by piece",
+      "feat.monitors.h": "Multi-monitor",
+      "feat.monitors.p": "One screen, cloned across all of them, or stretched as one continuous image — including portrait monitors.",
+      "feat.filters.h": "5 image filters",
+      "feat.filters.p": "Classic CRT, green or amber monochrome, strong CRT with vignette, or faded/sepia.",
+      "feat.config.h": "Graphical settings",
+      "feat.config.p": "Native dialog in Portuguese, English and Spanish — no registry editor, no config files by hand.",
+      "feat.volume.h": "Volume control",
+      "feat.volume.p": "0–100, applied to the program's sound effects with proper mixing — the same settings dialog also lets you pick which audio output device to play through.",
+      "feat.dismiss.h": "Configurable dismiss",
+      "feat.dismiss.p": "Exit on click and exit on mouse movement, each toggled independently.",
+      "feat.wallpaper.h": "Live wallpaper",
+      "feat.wallpaper.p": "Runs as an animated desktop background through Wallpaper Engine.",
+      "install.eyebrow": "Installation",
+      "install.title": "Windows 11 (and 10) in five steps",
+      "install.steps": [
+        ["Download the installer", "The button at the top of this page — a <code>.exe</code> marked \"Setup\"."],
+        ["Run it and accept the disclaimer", "The first page states clearly this is a non-commercial fan project — no rights claimed over the original game."],
+        ["Choose components", "Engine (required), Windows screensaver, and optionally fetch the original game files right away."],
+        ["Provide the original game files", "Not included — they belong to Sierra/Dynamix. See the next section for where to get them; the installer extracts everything automatically."],
+        ["Pick \"Johnny Castaway Reborn\" as your screensaver", "<code>Settings → Personalization → Lock screen → Screen saver</code>. The \"Settings\" button opens the configuration dialog."]
+      ],
+      "files.eyebrow": "Original game files",
+      "files.title": "RESOURCE.MAP and RESOURCE.001 are not included",
+      "files.body": "They're the property of Sierra/Dynamix. Known source for the original 1992 floppy disk image:",
+      "settings.eyebrow": "Reference",
+      "settings.title": "Every setting, explained",
+      "settings.rows": [
+        ["Story day", "1 to 11 — pins the story to a specific day in the narrative"],
+        ["Speed", "Percent of normal speed (100 = normal, 200 = double)"],
+        ["Holiday", "Auto (by date), or force Halloween / St Patrick / Christmas / New Year"],
+        ["Night", "Auto (by system time), or force night / day"],
+        ["Scale", "Auto, fill (distorts), fit (letterbox bars), cover (crops, no bars/distortion), or a fixed factor"],
+        ["Monitor / mode", "Which screen it shows on; or clone (same on all); or extend (one continuous image across all)"],
+        ["Audio device", "Which output plays the sound, when there's more than one"],
+        ["Volume", "0–100, applied to the program's sound effects only"],
+        ["Image filter", "None, CRT, green monochrome, amber monochrome, strong CRT, or faded/sepia"],
+        ["Skip intro", "Goes straight to the story, without the opening screen"],
+        ["Exit on click / on move", "On by default (normal screensaver behaviour); each can be turned off independently — e.g. if a wireless mouse jitters and dismisses it by itself"]
+      ],
+      "wp.eyebrow": "Animated background",
+      "wp.title": "Johnny as a live wallpaper",
+      "wp.body": "Through <a href=\"https://store.steampowered.com/app/431960/Wallpaper_Engine/\" style=\"color:var(--sun); font-weight:700;\">Wallpaper Engine</a> (Steam) — the only reliable path, since it uses an officially supported wallpaper mechanism instead of undocumented Windows tricks that can break with any update.",
+      "wp.steps": [
+        ["Find jc_reborn.exe", "Usually in <code>C:\\Program Files\\Johnny Castaway Reborn\\</code>."],
+        ["Open Wallpaper Engine → Editor → Create → Application", "Point it at the <code>jc_reborn.exe</code> from the previous step."],
+        ["Arguments: <code>window nointro</code>", "<code>window</code> is essential — without it, Wallpaper Engine can't embed the window."],
+        ["Apply to monitor", "In your Wallpaper Engine library, right-click the created wallpaper → Apply to Monitor."]
+      ],
+      "cli.eyebrow": "Command line",
+      "cli.title": "For anyone who likes configuring by text",
+      "cli.rows": [
+        ["<code>jc_reborn.exe</code>", "Fullscreen, full story"],
+        ["<code>window</code>", "Runs windowed instead of fullscreen"],
+        ["<code>/c</code>", "Opens the configuration dialog"],
+        ["<code>scale=cover</code>", "Fills the screen with no bars and no distortion"],
+        ["<code>crt=1..5</code>", "Picks the image filter"],
+        ["<code>volume=0..100</code>", "Sound effects volume"],
+        ["<code>day=1..11</code>", "Pins the story day"],
+        ["<code>monitors</code>", "Lists detected monitors"],
+        ["<code>help</code>", "Lists every available option"]
+      ],
+      "legal.eyebrow": "Legal",
+      "legal.title": "EULA / Disclaimer",
+      "legal.summary": "Read the full disclaimer",
+      "legal.body": "This project is a non-commercial, not-for-profit fan work, made purely out of love and nostalgia for the \"Johnny Castaway\" / \"Screen Antics\" franchise. I claim no rights whatsoever over the original game, its graphics, sounds, characters, or trademark — those rights belong to Sierra On-Line / Dynamix (and their legal successors, including Activision Blizzard). The included engine is open source, written from scratch by observing the original program's behavior, without using any code from the original game. The original resource files are NOT distributed by me — everyone must obtain them from their own legitimate copy of the original software. This project is not affiliated with, sponsored by, endorsed by, or associated in any way with Sierra, Dynamix, Activision Blizzard, or any current rights holder.",
+      "footer.eyebrow": "More from Yoshiki",
+      "footer.title": "Other projects",
+      "footer.3dmanager": "A quoting calculator for 3D printing services — works out real cost and minimum price automatically.",
+      "footer.yoshikibeats": "Music channel — instrumental J-Trap, Djent, GARAN, and whatever else feels right at the time.",
+      "footer.visit": "Visit ↗",
+      "footer.source": "💻 Source code & installer on GitHub",
+      "footer.contact": "Questions, issues, or suggestions — Lucas Yoshiki Amaral · yoluha91@gmail.com"
+    },
+    pt: {
+      "hero.eyebrow": "Motor reescrito · Windows 10/11 · 64-bit",
+      "hero.title": "Johnny Castaway Reborn",
+      "hero.tagline": "O clássico protetor de ecrã da Sierra de 1992 — o náufrago, a ilha, a gaivota, as garrafas com mensagens — a correr de novo, nativamente, em Windows moderno.",
+      "hero.download": "⬇ Descarregar para Windows",
+      "hero.howto": "Como instalar",
+      "hero.caption": "ilustração original, não é captura do jogo — clica ‹ › para ver os filtros de imagem reais",
+      "feat.eyebrow": "O que é isto",
+      "feat.title": "O motor de 1992, entendido peça a peça",
+      "feat.monitors.h": "Vários monitores",
+      "feat.monitors.p": "Um monitor, clonado em todos, ou esticado como uma imagem contínua por todos — incluindo monitores em modo retrato.",
+      "feat.filters.h": "5 filtros de imagem",
+      "feat.filters.p": "CRT clássico, monocromático verde ou âmbar, CRT forte com vinheta, ou desbotado/sépia.",
+      "feat.config.h": "Configuração gráfica",
+      "feat.config.p": "Diálogo nativo em Português, English e Español — sem editor de registo, sem ficheiros à mão.",
+      "feat.volume.h": "Controlo de volume",
+      "feat.volume.p": "0 a 100, aplicado aos efeitos sonoros do programa com mistura correta — o mesmo diálogo também deixa escolher por qual dispositivo o som sai.",
+      "feat.dismiss.h": "Saída configurável",
+      "feat.dismiss.p": "Sair ao clicar e sair ao mexer o rato, cada um ativável independentemente.",
+      "feat.wallpaper.h": "Fundo animado",
+      "feat.wallpaper.p": "Corre como fundo de ecrã animado através do Wallpaper Engine.",
+      "install.eyebrow": "Instalação",
+      "install.title": "Windows 11 (e 10) em cinco passos",
+      "install.steps": [
+        ["Descarrega o instalador", "O botão no topo desta página — um <code>.exe</code> assinalado como \"Setup\"."],
+        ["Corre-o e aceita o aviso legal", "A primeira página explica claramente que isto é um projeto de fãs, sem fins lucrativos — nada de direitos sobre o jogo original."],
+        ["Escolhe os componentes", "Motor (obrigatório), protetor de ecrã do Windows, e opcionalmente já ir buscar os ficheiros do jogo original."],
+        ["Fornece os ficheiros do jogo original", "Não incluídos — pertencem à Sierra/Dynamix. A secção seguinte diz onde os obter; o instalador extrai tudo automaticamente."],
+        ["Escolhe \"Johnny Castaway Reborn\" como protetor de ecrã", "<code>Definições → Personalização → Ecrã de bloqueio → Protetor de ecrã</code>. O botão \"Definições\" abre o diálogo de configuração."]
+      ],
+      "files.eyebrow": "Ficheiros do jogo original",
+      "files.title": "RESOURCE.MAP e RESOURCE.001 não vêm incluídos",
+      "files.body": "São propriedade da Sierra/Dynamix. Fonte conhecida com a imagem da disquete original de 1992:",
+      "settings.eyebrow": "Referência",
+      "settings.title": "Todas as opções de configuração, explicadas",
+      "settings.rows": [
+        ["Dia da história", "1 a 11 — fixa a história num dia específico da narrativa"],
+        ["Velocidade", "Percentagem da velocidade normal (100 = normal, 200 = dobro)"],
+        ["Feriado", "Automático (pela data), ou força Halloween / St Patrick / Natal / Ano Novo"],
+        ["Noite", "Automático (pela hora do sistema), ou força noite / dia"],
+        ["Escala", "Automático, preencher (distorce), ajustar (barras), cobrir (corta, sem distorção nem barras), ou fator fixo"],
+        ["Monitor / modo", "Em qual ecrã aparece; ou clone (igual em todos); ou estender (imagem contínua por todos)"],
+        ["Dispositivo de áudio", "Por onde sai o som, quando há mais que uma saída"],
+        ["Volume", "0 a 100, aplicado só aos efeitos sonoros do programa"],
+        ["Filtro de imagem", "Nenhum, CRT, monocromático verde, monocromático âmbar, CRT forte, ou desbotado/sépia"],
+        ["Saltar introdução", "Vai direto para a história, sem o ecrã inicial"],
+        ["Sair ao clicar / ao mexer", "Ativos por defeito (comportamento normal); podem desligar-se independentemente — ex: um rato sem fios que \"treme\" e fecha sozinho"]
+      ],
+      "wp.eyebrow": "Fundo animado",
+      "wp.title": "Johnny como live wallpaper",
+      "wp.body": "Através do <a href=\"https://store.steampowered.com/app/431960/Wallpaper_Engine/\" style=\"color:var(--sun); font-weight:700;\">Wallpaper Engine</a> (Steam) — o único caminho fiável, porque usa um mecanismo de fundos suportado oficialmente, em vez de truques não documentados do Windows.",
+      "wp.steps": [
+        ["Localiza o jc_reborn.exe", "Normalmente em <code>C:\\Program Files\\Johnny Castaway Reborn\\</code>."],
+        ["Abre o Wallpaper Engine → Editor → Create → Application", "Aponta para o <code>jc_reborn.exe</code> do passo anterior."],
+        ["Argumentos: <code>window nointro</code>", "<code>window</code> é essencial — sem ele o Wallpaper Engine não consegue embutir a janela."],
+        ["Aplica ao monitor", "Na tua biblioteca, botão direito no wallpaper criado → Apply to Monitor."]
+      ],
+      "cli.eyebrow": "Linha de comandos",
+      "cli.title": "Para quem gosta de configurar por texto",
+      "cli.rows": [
+        ["<code>jc_reborn.exe</code>", "Ecrã inteiro, história completa"],
+        ["<code>window</code>", "Corre em janela em vez de ecrã inteiro"],
+        ["<code>/c</code>", "Abre o diálogo de configuração"],
+        ["<code>scale=cover</code>", "Preenche o ecrã sem barras nem distorção"],
+        ["<code>crt=1..5</code>", "Escolhe o filtro de imagem"],
+        ["<code>volume=0..100</code>", "Volume dos efeitos sonoros"],
+        ["<code>day=1..11</code>", "Fixa o dia da história"],
+        ["<code>monitors</code>", "Lista os monitores detetados"],
+        ["<code>help</code>", "Lista todas as opções"]
+      ],
+      "legal.eyebrow": "Legal",
+      "legal.title": "EULA / Aviso legal",
+      "legal.summary": "Ler o aviso legal completo",
+      "legal.body": "Este projeto é um trabalho de fãs, não-comercial e sem fins lucrativos, feito por puro amor e nostalgia pela franquia \"Johnny Castaway\" / \"Screen Antics\". Não reivindico qualquer direito sobre o jogo original, os seus gráficos, sons, personagens ou marca — esses direitos pertencem à Sierra On-Line / Dynamix (e aos seus sucessores legais, incluindo a Activision Blizzard). O motor incluído é código aberto, escrito de raiz através da observação do comportamento do programa original. Os ficheiros de recursos originais NÃO são distribuídos por mim — cada pessoa deve obtê-los a partir da sua própria cópia legítima. Este projeto não é afiliado, patrocinado, aprovado, nem associado de qualquer forma à Sierra, Dynamix, Activision Blizzard, ou a qualquer atual detentor dos direitos.",
+      "footer.eyebrow": "Mais do Yoshiki",
+      "footer.title": "Outros projetos",
+      "footer.3dmanager": "Calculadora de orçamentos para serviços de impressão 3D — calcula automaticamente o custo real e o preço mínimo.",
+      "footer.yoshikibeats": "Canal de música — instrumental J-Trap, Djent, GARAN, e o que apetecer no momento.",
+      "footer.visit": "Visitar ↗",
+      "footer.source": "💻 Código-fonte e instalador no GitHub",
+      "footer.contact": "Dúvidas, problemas, ou sugestões — Lucas Yoshiki Amaral · yoluha91@gmail.com"
+    },
+    es: {
+      "hero.eyebrow": "Motor reescrito · Windows 10/11 · 64-bit",
+      "hero.title": "Johnny Castaway Reborn",
+      "hero.tagline": "El clásico protector de pantalla de Sierra de 1992 — el náufrago, la isla, la gaviota, las botellas con mensajes — funcionando de nuevo, nativamente, en Windows moderno.",
+      "hero.download": "⬇ Descargar para Windows",
+      "hero.howto": "Cómo instalar",
+      "hero.caption": "ilustración original, no es una captura del juego — haz clic en ‹ › para ver los filtros reales",
+      "feat.eyebrow": "Qué es esto",
+      "feat.title": "El motor de 1992, entendido pieza a pieza",
+      "feat.monitors.h": "Varios monitores",
+      "feat.monitors.p": "Un monitor, clonado en todos, o estirado como una imagen continua por todos — incluyendo monitores en modo retrato.",
+      "feat.filters.h": "5 filtros de imagen",
+      "feat.filters.p": "CRT clásico, monocromo verde o ámbar, CRT fuerte con viñeta, o desvanecido/sepia.",
+      "feat.config.h": "Configuración gráfica",
+      "feat.config.p": "Diálogo nativo en Português, English y Español — sin editor de registro, sin archivos a mano.",
+      "feat.volume.h": "Control de volumen",
+      "feat.volume.p": "0 a 100, aplicado a los efectos de sonido con mezcla correcta — el mismo diálogo también permite elegir por qué dispositivo sale el sonido.",
+      "feat.dismiss.h": "Salida configurable",
+      "feat.dismiss.p": "Salir al hacer clic y salir al mover el ratón, cada uno activable de forma independiente.",
+      "feat.wallpaper.h": "Fondo animado",
+      "feat.wallpaper.p": "Funciona como fondo de escritorio animado mediante Wallpaper Engine.",
+      "install.eyebrow": "Instalación",
+      "install.title": "Windows 11 (y 10) en cinco pasos",
+      "install.steps": [
+        ["Descarga el instalador", "El botón en la parte superior de esta página — un <code>.exe</code> marcado como \"Setup\"."],
+        ["Ejecútalo y acepta el aviso legal", "La primera página explica claramente que es un proyecto de fans, sin fines de lucro."],
+        ["Elige los componentes", "Motor (obligatorio), protector de pantalla de Windows, y opcionalmente obtener ya los archivos del juego original."],
+        ["Proporciona los archivos del juego original", "No incluidos — pertenecen a Sierra/Dynamix. La siguiente sección explica dónde obtenerlos."],
+        ["Elige \"Johnny Castaway Reborn\" como protector de pantalla", "<code>Configuración → Personalización → Pantalla de bloqueo → Protector de pantalla</code>."]
+      ],
+      "files.eyebrow": "Archivos del juego original",
+      "files.title": "RESOURCE.MAP y RESOURCE.001 no están incluidos",
+      "files.body": "Son propiedad de Sierra/Dynamix. Fuente conocida con la imagen del disquete original de 1992:",
+      "settings.eyebrow": "Referencia",
+      "settings.title": "Todas las opciones de configuración, explicadas",
+      "settings.rows": [
+        ["Día de la historia", "1 a 11 — fija la historia en un día específico"],
+        ["Velocidad", "Porcentaje de la velocidad normal (100 = normal, 200 = doble)"],
+        ["Festividad", "Automático (por fecha), o fuerza Halloween / San Patricio / Navidad / Año Nuevo"],
+        ["Noche", "Automático (por hora del sistema), o fuerza noche / día"],
+        ["Escala", "Automático, llenar (distorsiona), ajustar (barras), cubrir (recorta, sin distorsión ni barras), o factor fijo"],
+        ["Monitor / modo", "En qué pantalla aparece; o clon (igual en todos); o extendido (imagen continua por todos)"],
+        ["Dispositivo de audio", "Por dónde sale el sonido, cuando hay más de una salida"],
+        ["Volumen", "0 a 100, aplicado solo a los efectos de sonido"],
+        ["Filtro de imagen", "Ninguno, CRT, monocromo verde, monocromo ámbar, CRT fuerte, o desvanecido/sepia"],
+        ["Saltar introducción", "Va directo a la historia, sin la pantalla inicial"],
+        ["Salir al clic / al mover", "Activos por defecto; se pueden desactivar de forma independiente"]
+      ],
+      "wp.eyebrow": "Fondo animado",
+      "wp.title": "Johnny como live wallpaper",
+      "wp.body": "Mediante <a href=\"https://store.steampowered.com/app/431960/Wallpaper_Engine/\" style=\"color:var(--sun); font-weight:700;\">Wallpaper Engine</a> (Steam) — el único camino fiable, ya que usa un mecanismo de fondos oficialmente soportado.",
+      "wp.steps": [
+        ["Localiza jc_reborn.exe", "Normalmente en <code>C:\\Program Files\\Johnny Castaway Reborn\\</code>."],
+        ["Abre Wallpaper Engine → Editor → Create → Application", "Apunta al <code>jc_reborn.exe</code> del paso anterior."],
+        ["Argumentos: <code>window nointro</code>", "<code>window</code> es esencial — sin él, Wallpaper Engine no puede incrustar la ventana."],
+        ["Aplica al monitor", "En tu biblioteca, clic derecho en el fondo creado → Apply to Monitor."]
+      ],
+      "cli.eyebrow": "Línea de comandos",
+      "cli.title": "Para quien prefiera configurar por texto",
+      "cli.rows": [
+        ["<code>jc_reborn.exe</code>", "Pantalla completa, historia completa"],
+        ["<code>window</code>", "Corre en ventana en vez de pantalla completa"],
+        ["<code>/c</code>", "Abre el diálogo de configuración"],
+        ["<code>scale=cover</code>", "Llena la pantalla sin barras ni distorsión"],
+        ["<code>crt=1..5</code>", "Elige el filtro de imagen"],
+        ["<code>volume=0..100</code>", "Volumen de los efectos de sonido"],
+        ["<code>day=1..11</code>", "Fija el día de la historia"],
+        ["<code>monitors</code>", "Lista los monitores detectados"],
+        ["<code>help</code>", "Lista todas las opciones"]
+      ],
+      "legal.eyebrow": "Legal",
+      "legal.title": "EULA / Aviso legal",
+      "legal.summary": "Leer el aviso legal completo",
+      "legal.body": "Este proyecto es un trabajo de fans, no comercial y sin fines de lucro, hecho por puro amor y nostalgia hacia la franquicia \"Johnny Castaway\" / \"Screen Antics\". No reclamo ningún derecho sobre el juego original, sus gráficos, sonidos, personajes o marca — esos derechos pertenecen a Sierra On-Line / Dynamix (y a sus sucesores legales, incluyendo Activision Blizzard). El motor incluido es de código abierto, escrito desde cero mediante la observación del comportamiento del programa original. Los archivos de recursos originales NO son distribuidos por mí. Este proyecto no está afiliado, patrocinado, respaldado, ni asociado de ninguna manera con Sierra, Dynamix, Activision Blizzard, ni con ningún actual titular de los derechos.",
+      "footer.eyebrow": "Más de Yoshiki",
+      "footer.title": "Otros proyectos",
+      "footer.3dmanager": "Calculadora de presupuestos para servicios de impresión 3D — calcula automáticamente el costo real y el precio mínimo.",
+      "footer.yoshikibeats": "Canal de música — instrumental J-Trap, Djent, GARAN, y lo que apetezca en el momento.",
+      "footer.visit": "Visitar ↗",
+      "footer.source": "💻 Código fuente e instalador en GitHub",
+      "footer.contact": "Preguntas, problemas, o sugerencias — Lucas Yoshiki Amaral · yoluha91@gmail.com"
+    }
+  };
+
+  function renderList(id, key, lang) {
+    var el = document.getElementById(id);
+    var items = T[lang][key];
+    el.innerHTML = items.map(function (it) {
+      return "<li><div><strong>" + it[0] + "</strong><p>" + it[1] + "</p></div></li>";
+    }).join("");
+  }
+
+  function renderTable(id, key, lang) {
+    var el = document.getElementById(id);
+    var rows = T[lang][key];
+    var head = lang === "en" ? ["Field", "What it does"] : lang === "pt" ? ["Campo", "O que faz"] : ["Campo", "Qué hace"];
+    if (id === "cliTable") head = lang === "en" ? ["Option", "What it does"] : lang === "pt" ? ["Opção", "O que faz"] : ["Opción", "Qué hace"];
+    var html = "<tr><th>" + head[0] + "</th><th>" + head[1] + "</th></tr>";
+    rows.forEach(function (r) { html += "<tr><td>" + r[0] + "</td><td>" + r[1] + "</td></tr>"; });
+    el.innerHTML = html;
+  }
+
+  function setLanguage(lang) {
+    if (!T[lang]) lang = "en";
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n");
+      if (T[lang][key] !== undefined) el.innerHTML = T[lang][key];
+    });
+    renderList("installSteps", "install.steps", lang);
+    renderList("wpSteps", "wp.steps", lang);
+    renderTable("settingsTable", "settings.rows", lang);
+    renderTable("cliTable", "cli.rows", lang);
+    document.querySelectorAll(".langswitch button").forEach(function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang ? "true" : "false");
+    });
+    document.documentElement.setAttribute("lang", lang);
+    try { localStorage.setItem("jcr-lang", lang); } catch (e) {}
+  }
+
+  document.querySelectorAll(".langswitch button").forEach(function (b) {
+    b.addEventListener("click", function () { setLanguage(b.getAttribute("data-set-lang")); });
+  });
+
+  var initial = "en";
+  try {
+    var saved = localStorage.getItem("jcr-lang");
+    if (saved && T[saved]) {
+      initial = saved;
+    } else {
+      var nav = (navigator.language || "en").toLowerCase();
+      if (nav.indexOf("pt") === 0) initial = "pt";
+      else if (nav.indexOf("es") === 0) initial = "es";
+    }
+  } catch (e) {}
+  setLanguage(initial);
+
+  // ---- filter carousel ----
+  var filters = [
+    ["none", "Original"],
+    ["crt", "CRT scanlines"],
+    ["green", "Green monochrome"],
+    ["amber", "Amber monochrome"],
+    ["strong", "Strong CRT"],
+    ["sepia", "Faded / sepia"]
+  ];
+  var fi = 0;
+  var screenEl = document.getElementById("demoScreen");
+  var labelEl = document.getElementById("filterLabel");
+  function applyFilter() {
+    screenEl.className = "screen" + (filters[fi][0] === "none" ? "" : " f-" + filters[fi][0]);
+    labelEl.textContent = filters[fi][1];
+  }
+  document.getElementById("filterPrev").addEventListener("click", function () {
+    fi = (fi - 1 + filters.length) % filters.length; applyFilter();
+  });
+  document.getElementById("filterNext").addEventListener("click", function () {
+    fi = (fi + 1) % filters.length; applyFilter();
+  });
+  applyFilter();
+})();
+</script>

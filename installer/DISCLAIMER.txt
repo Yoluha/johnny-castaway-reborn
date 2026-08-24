@@ -1,0 +1,70 @@
+==============================================================================
+PT - AVISO LEGAL
+==============================================================================
+Este projeto e um trabalho de fas, nao-comercial e sem fins lucrativos,
+feito por puro amor e nostalgia pela franquia "Johnny Castaway" / "Screen
+Antics". Nao reivindico qualquer direito sobre o jogo original, os seus
+graficos, sons, personagens ou marca - esses direitos pertencem a Sierra
+On-Line / Dynamix (e aos seus sucessores legais, incluindo a Activision
+Blizzard).
+
+O motor incluido (jc_reborn e as extensoes feitas nesta versao) e codigo
+aberto (licenca GPL-3.0), escrito de raiz atraves da observacao do
+comportamento do programa original, sem usar nenhum codigo do jogo
+original.
+
+Os ficheiros de recursos originais (RESOURCE.MAP / RESOURCE.001) NAO sao
+distribuidos por mim. Cada pessoa deve obte-los a partir da sua propria
+copia legitima do software original.
+
+Este projeto nao e afiliado, patrocinado, aprovado, nem associado de
+qualquer forma a Sierra, Dynamix, Activision Blizzard, ou a qualquer
+atual detentor dos direitos.
+
+
+==============================================================================
+EN - LEGAL DISCLAIMER
+==============================================================================
+This project is a non-commercial, not-for-profit fan work, made purely
+out of love and nostalgia for the "Johnny Castaway" / "Screen Antics"
+franchise. I claim no rights whatsoever over the original game, its
+graphics, sounds, characters, or trademark - those rights belong to
+Sierra On-Line / Dynamix (and their legal successors, including
+Activision Blizzard).
+
+The included engine (jc_reborn and the extensions built in this version)
+is open source (GPL-3.0 license), written from scratch by observing the
+original program's behavior, without using any code from the original
+game.
+
+The original resource files (RESOURCE.MAP / RESOURCE.001) are NOT
+distributed by me. Everyone must obtain them from their own legitimate
+copy of the original software.
+
+This project is not affiliated with, sponsored by, endorsed by, or
+associated in any way with Sierra, Dynamix, Activision Blizzard, or any
+current rights holder.
+
+
+==============================================================================
+ES - AVISO LEGAL
+==============================================================================
+Este proyecto es un trabajo de fans, no comercial y sin fines de lucro,
+hecho por puro amor y nostalgia hacia la franquicia "Johnny Castaway" /
+"Screen Antics". No reclamo ningun derecho sobre el juego original, sus
+graficos, sonidos, personajes o marca - esos derechos pertenecen a
+Sierra On-Line / Dynamix (y a sus sucesores legales, incluyendo
+Activision Blizzard).
+
+El motor incluido (jc_reborn y las extensiones realizadas en esta
+version) es de codigo abierto (licencia GPL-3.0), escrito desde cero
+mediante la observacion del comportamiento del programa original, sin
+usar ningun codigo del juego original.
+
+Los archivos de recursos originales (RESOURCE.MAP / RESOURCE.001) NO son
+distribuidos por mi. Cada persona debe obtenerlos a partir de su propia
+copia legitima del software original.
+
+Este proyecto no esta afiliado, patrocinado, respaldado, ni asociado de
+ninguna manera con Sierra, Dynamix, Activision Blizzard, ni con ningun
+actual titular de los derechos.
