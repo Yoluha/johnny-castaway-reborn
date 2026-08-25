@@ -199,8 +199,16 @@
   .castaway .head::after  { left: 5.9px; }
   .castaway .beard {
     width: 6.5px; height: 2.5px; margin: -1px auto 0 auto;
-    background: #6b4a30;
+    background: #1c1c1c;
     border-radius: 0 0 3px 3px;
+    position: relative;
+  }
+  .castaway .beard::before {
+    content: ""; position: absolute; top: -1.4px; left: 50%;
+    transform: translateX(-50%);
+    width: 7.5px; height: 1.4px;
+    background: #1c1c1c;
+    border-radius: 1px;
   }
   .castaway .shoulders {
     width: 13px; height: 3px; margin: -0.5px auto 0 auto;
