@@ -160,58 +160,61 @@
   .frond.f3 { transform: rotate(20deg); background: #4a9256; bottom: 56%; }
 
   /* A small generic castaway silhouette (own design, not a copy of any
-     copyrighted character) -- a bearded, shirtless figure in ragged shorts
-     and a captain-style hat, matching the general shipwrecked-sailor
-     archetype rather than any specific character's exact art. */
+     copyrighted character) -- just his bearded, hatted head and shoulders
+     above the waterline, like he's swimming/wading rather than standing,
+     which is both simpler to read at this size and avoids the previous
+     tall-narrow-plus-round-cap silhouette reading as something it very
+     much shouldn't. */
   .castaway {
-    position: absolute; bottom: 44%; left: 34%; width: 16px; height: 28px;
+    position: absolute; bottom: 40%; left: 34%; width: 16px; height: 16px;
     transform-origin: bottom center;
-    transform: scale(1.9);
-    animation: walk 7s ease-in-out infinite;
+    transform: scale(1.8);
+    animation: swim 8s ease-in-out infinite;
   }
   .castaway .hat {
-    width: 12px; height: 4px; margin: 0 auto;
-    background: #2f2a24;
-    border-radius: 5px 5px 1px 1px;
+    width: 10px; height: 4px; margin: 0 auto;
+    background: #f2ede1;
+    border-radius: 50% 50% 15% 15%;
     position: relative;
   }
+  .castaway .hat::before {
+    content: ""; position: absolute; bottom: 0; left: 0;
+    width: 10px; height: 1px; background: #2f2a24;
+  }
   .castaway .hat::after {
-    content: ""; position: absolute; top: 3px; left: 1px;
-    width: 10px; height: 2px; background: #2f2a24; border-radius: 2px;
+    content: ""; position: absolute; bottom: -1.5px; left: -1.5px;
+    width: 13px; height: 1.6px; background: #f2ede1; border: 1px solid #d8d0bd; border-radius: 2px;
   }
   .castaway .head {
-    width: 10px; height: 8px; margin: 0 auto;
+    width: 9px; height: 7px; margin: 1px auto 0 auto;
     background: #e0b088;
-    border-radius: 45% 45% 50% 50%;
+    border-radius: 42% 42% 50% 50%;
     position: relative;
   }
   .castaway .head::before, .castaway .head::after {
-    content: ""; position: absolute; top: 3px;
-    width: 1.4px; height: 1.4px; border-radius: 50%; background: #3a2b1f;
+    content: ""; position: absolute; top: 2.6px;
+    width: 1.3px; height: 1.3px; border-radius: 50%; background: #3a2b1f;
   }
-  .castaway .head::before { left: 2.4px; }
-  .castaway .head::after  { left: 6.4px; }
+  .castaway .head::before { left: 1.8px; }
+  .castaway .head::after  { left: 5.9px; }
   .castaway .beard {
-    width: 8px; height: 4px; margin: -1px auto 0 auto;
-    background: #cfcfcf;
-    border-radius: 0 0 4px 4px;
+    width: 6.5px; height: 2.5px; margin: -1px auto 0 auto;
+    background: #6b4a30;
+    border-radius: 0 0 3px 3px;
   }
-  .castaway .body {
-    width: 7px; height: 11px; margin: 0 auto 0 auto;
-    background: #e0b088;
-    border-radius: 2px;
+  .castaway .shoulders {
+    width: 13px; height: 3px; margin: -0.5px auto 0 auto;
+    background: #cf9a6a;
+    border-radius: 3px 3px 1px 1px;
   }
-  .castaway .shorts {
-    width: 9px; height: 5px; margin: -1px auto 0 auto;
-    background: #7a5a3a;
-    border-radius: 1px 1px 3px 3px;
-  }
-  @keyframes walk {
-    0%   { left: 34%; transform: scale(1.9) scaleX(1); }
-    45%  { left: 58%; transform: scale(1.9) scaleX(1); }
-    50%  { transform: scale(1.9) scaleX(-1); }
-    95%  { left: 34%; transform: scale(1.9) scaleX(-1); }
-    100% { left: 34%; transform: scale(1.9) scaleX(1); }
+  @keyframes swim {
+    0%   { left: 34%; bottom: 40%; transform: scale(1.8) scaleX(1); }
+    23%  { bottom: 41%; }
+    45%  { left: 54%; bottom: 40%; transform: scale(1.8) scaleX(1); }
+    50%  { transform: scale(1.8) scaleX(-1); }
+    73%  { bottom: 41%; }
+    95%  { left: 34%; bottom: 40%; transform: scale(1.8) scaleX(-1); }
+    100% { left: 34%; bottom: 40%; transform: scale(1.8) scaleX(1); }
   }
 
   .scanlines {
@@ -334,7 +337,7 @@
           <div class="trunk"></div>
           <div class="island"></div>
           <div class="sea"></div>
-          <div class="castaway"><div class="hat"></div><div class="head"></div><div class="beard"></div><div class="body"></div><div class="shorts"></div></div>
+          <div class="castaway"><div class="hat"></div><div class="head"></div><div class="beard"></div><div class="shoulders"></div></div>
           <div class="scanlines"></div>
           <div class="vignette"></div>
         </div>
