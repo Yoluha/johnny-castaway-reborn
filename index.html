@@ -1878,6 +1878,9 @@
     }
   } catch (e) {}
   setLanguage(initial);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(fitProjLabel);
+  }
 
   // ---- filter carousel ----
   var filters = [
