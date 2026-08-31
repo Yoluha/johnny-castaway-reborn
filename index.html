@@ -327,17 +327,6 @@
   details.legal summary { cursor: pointer; font-family: var(--font-display); font-weight: 600; padding: 12px 0; }
   details.legal p { font-size: 0.88rem; padding-bottom: 14px; max-width: none; }
 
-  /* ============ PROJECT CARDS ============ */
-  .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
-  .proj-card {
-    background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px;
-    display: flex; flex-direction: column; gap: 10px;
-  }
-  .proj-icon { font-size: 1.7rem; }
-  .proj-card h3 { font-size: 1.05rem; margin-bottom: 0; }
-  .proj-card p { font-size: 0.9rem; margin-bottom: 4px; }
-  .proj-card .btn { align-self: flex-start; }
-
   footer { background: var(--night); color: #dfe6f5; padding: 52px 0 34px 0; }
   footer .container { display: flex; flex-direction: column; gap: 28px; }
   footer h2 { color: #fff8ec; }
@@ -551,30 +540,6 @@
 <!-- ================= FOOTER ================= -->
 <footer>
   <div class="container">
-    <div>
-      <span class="eyebrow" style="color:#9fd6e8;" data-i18n="footer.eyebrow"></span>
-      <h2 data-i18n="footer.title"></h2>
-    </div>
-    <div class="proj-grid">
-      <div class="proj-card">
-        <span class="proj-icon">⏱️</span>
-        <h3>Horas</h3>
-        <p data-i18n="strip.horas"></p>
-        <a class="btn btn-primary btn-sm" href="https://yoluha.github.io/horas/" data-i18n="footer.visit"></a>
-      </div>
-      <div class="proj-card">
-        <span class="proj-icon">📐</span>
-        <h3>3D Manager</h3>
-        <p data-i18n="footer.3dmanager"></p>
-        <a class="btn btn-primary btn-sm" href="https://yoluha.github.io/3d-manager/" data-i18n="footer.visit"></a>
-      </div>
-      <div class="proj-card">
-        <span class="proj-icon">🎧</span>
-        <h3>Yoshiki Beats</h3>
-        <p data-i18n="footer.yoshikibeats"></p>
-        <a class="btn btn-primary btn-sm" href="https://www.youtube.com/channel/UClEkyF0yv7Vyh2nRhKlvFlQ" data-i18n="footer.visit"></a>
-      </div>
-    </div>
     <div style="text-align:center;">
       <a class="gh" href="https://github.com/yoluha/johnny-castaway-reborn" data-i18n="footer.source"></a>
     </div>
@@ -660,16 +625,10 @@
       "legal.title": "EULA / Disclaimer",
       "legal.summary": "Read the full disclaimer",
       "legal.body": "This project is a non-commercial, not-for-profit fan work, made purely out of love and nostalgia for the \"Johnny Castaway\" / \"Screen Antics\" franchise. I claim no rights whatsoever over the original game, its graphics, sounds, characters, or trademark — those rights belong to Sierra On-Line / Dynamix (and their legal successors, including Activision Blizzard). The included engine is open source, written from scratch by observing the original program's behavior, without using any code from the original game. The original resource files are NOT distributed by me — everyone must obtain them from their own legitimate copy of the original software. This project is not affiliated with, sponsored by, endorsed by, or associated in any way with Sierra, Dynamix, Activision Blizzard, or any current rights holder.",
-      "footer.eyebrow": "More from Yoshiki",
-      "footer.title": "Other projects",
       "strip.label": "Projects",
-      "strip.horas": "Time clock app — clock in/out, WiFi auto-detect, WhatsApp export, 97 themes.",
       "shortHoras": "Time clock, WiFi auto-detect",
       "short3dmanager": "Quotes, production and clients",
       "shortYoshiki": "Instrumental J-Trap and GΛRĀN",
-      "footer.3dmanager": "A quoting calculator for 3D printing services — works out real cost and minimum price automatically.",
-      "footer.yoshikibeats": "Music channel — instrumental J-Trap, Djent, GARAN, and whatever else feels right at the time.",
-      "footer.visit": "Visit ↗",
       "footer.source": "💻 Source code & installer on GitHub",
       "footer.contact": "Questions, issues, or suggestions — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -747,16 +706,10 @@
       "legal.title": "EULA / Aviso legal",
       "legal.summary": "Ler o aviso legal completo",
       "legal.body": "Este projeto é um trabalho de fãs, não-comercial e sem fins lucrativos, feito por puro amor e nostalgia pela franquia \"Johnny Castaway\" / \"Screen Antics\". Não reivindico qualquer direito sobre o jogo original, os seus gráficos, sons, personagens ou marca — esses direitos pertencem à Sierra On-Line / Dynamix (e aos seus sucessores legais, incluindo a Activision Blizzard). O motor incluído é código aberto, escrito de raiz através da observação do comportamento do programa original. Os ficheiros de recursos originais NÃO são distribuídos por mim — cada pessoa deve obtê-los a partir da sua própria cópia legítima. Este projeto não é afiliado, patrocinado, aprovado, nem associado de qualquer forma à Sierra, Dynamix, Activision Blizzard, ou a qualquer atual detentor dos direitos.",
-      "footer.eyebrow": "Mais do Yoshiki",
-      "footer.title": "Outros projetos",
       "strip.label": "Projetos",
-      "strip.horas": "App de picar ponto — entrada/saída, deteção WiFi, envio por WhatsApp, 97 temas.",
       "shortHoras": "Ponto e deteção por WiFi",
       "short3dmanager": "Orçamentos, produção e clientes",
       "shortYoshiki": "Instrumentais J-Trap e GΛRĀN",
-      "footer.3dmanager": "Calculadora de orçamentos para serviços de impressão 3D — calcula automaticamente o custo real e o preço mínimo.",
-      "footer.yoshikibeats": "Canal de música — instrumental J-Trap, Djent, GARAN, e o que apetecer no momento.",
-      "footer.visit": "Visitar ↗",
       "footer.source": "💻 Código-fonte e instalador no GitHub",
       "footer.contact": "Dúvidas, problemas, ou sugestões — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -834,16 +787,10 @@
       "legal.title": "EULA / Aviso legal",
       "legal.summary": "Leer el aviso legal completo",
       "legal.body": "Este proyecto es un trabajo de fans, no comercial y sin fines de lucro, hecho por puro amor y nostalgia hacia la franquicia \"Johnny Castaway\" / \"Screen Antics\". No reclamo ningún derecho sobre el juego original, sus gráficos, sonidos, personajes o marca — esos derechos pertenecen a Sierra On-Line / Dynamix (y a sus sucesores legales, incluyendo Activision Blizzard). El motor incluido es de código abierto, escrito desde cero mediante la observación del comportamiento del programa original. Los archivos de recursos originales NO son distribuidos por mí. Este proyecto no está afiliado, patrocinado, respaldado, ni asociado de ninguna manera con Sierra, Dynamix, Activision Blizzard, ni con ningún actual titular de los derechos.",
-      "footer.eyebrow": "Más de Yoshiki",
-      "footer.title": "Otros proyectos",
       "strip.label": "Proyectos",
-      "strip.horas": "App de fichaje — entrada/salida, detección de WiFi, envío por WhatsApp, 97 temas.",
       "shortHoras": "Fichaje y detección por WiFi",
       "short3dmanager": "Presupuestos, producción y clientes",
       "shortYoshiki": "Instrumental J-Trap y GΛRĀN",
-      "footer.3dmanager": "Calculadora de presupuestos para servicios de impresión 3D — calcula automáticamente el costo real y el precio mínimo.",
-      "footer.yoshikibeats": "Canal de música — instrumental J-Trap, Djent, GARAN, y lo que apetezca en el momento.",
-      "footer.visit": "Visitar ↗",
       "footer.source": "💻 Código fuente e instalador en GitHub",
       "footer.contact": "Preguntas, problemas, o sugerencias — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -921,16 +868,10 @@
       "legal.title": "CLUF / Avertissement",
       "legal.summary": "Lire l'avertissement complet",
       "legal.body": "Ce projet est une œuvre de fan non commerciale et à but non lucratif, réalisée purement par amour et nostalgie pour la franchise \"Johnny Castaway\" / \"Screen Antics\". Je ne revendique aucun droit sur le jeu original, ses graphismes, sons, personnages ou marques — ces droits appartiennent à Sierra On-Line / Dynamix (et leurs successeurs légaux, y compris Activision Blizzard). Le moteur inclus est open source, écrit de zéro en observant le comportement du programme original, sans utiliser aucun code du jeu original. Les fichiers de ressources originaux ne sont PAS distribués par moi — chacun doit se les procurer via sa propre copie légitime du logiciel original. Ce projet n'est affilié, sponsorisé, approuvé ni associé d'aucune manière à Sierra, Dynamix, Activision Blizzard, ou tout détenteur actuel des droits.",
-      "footer.eyebrow": "Plus de projets de Yoshiki",
-      "footer.title": "Autres projets",
       "strip.label": "Projets",
-      "strip.horas": "App de pointage — arrivée/départ, détection WiFi automatique, export WhatsApp, 97 thèmes.",
       "shortHoras": "Pointage, détection WiFi",
       "short3dmanager": "Devis, production et clients",
       "shortYoshiki": "Instrumentaux J-Trap et GΛRĀN",
-      "footer.3dmanager": "Une calculatrice de devis pour services d'impression 3D — calcule automatiquement le coût réel et le prix minimum.",
-      "footer.yoshikibeats": "Chaîne de musique — instrumental J-Trap, Djent, GARAN, et ce qui inspire sur le moment.",
-      "footer.visit": "Visiter ↗",
       "footer.source": "💻 Code source et installateur sur GitHub",
       "footer.contact": "Questions, problèmes, ou suggestions — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1008,16 +949,10 @@
       "legal.title": "EULA / Haftungsausschluss",
       "legal.summary": "Vollständigen Haftungsausschluss lesen",
       "legal.body": "Dieses Projekt ist eine nicht-kommerzielle, gemeinnützige Fan-Arbeit, rein aus Liebe und Nostalgie zur Marke \"Johnny Castaway\" / \"Screen Antics\" entstanden. Ich beanspruche keinerlei Rechte am Originalspiel, seinen Grafiken, Sounds, Charakteren oder Marken — diese Rechte gehören Sierra On-Line / Dynamix (und deren Rechtsnachfolgern, einschließlich Activision Blizzard). Die enthaltene Engine ist Open Source, von Grund auf neu geschrieben durch Beobachtung des Verhaltens des Originalprogramms, ohne jeglichen Code aus dem Originalspiel zu verwenden. Die originalen Ressourcendateien werden von mir NICHT verbreitet — jeder muss sie sich über seine eigene legitime Kopie der Originalsoftware beschaffen. Dieses Projekt steht in keiner Verbindung zu, wird nicht gesponsert, unterstützt oder ist auf irgendeine Weise verbunden mit Sierra, Dynamix, Activision Blizzard oder einem aktuellen Rechteinhaber.",
-      "footer.eyebrow": "Mehr von Yoshiki",
-      "footer.title": "Weitere Projekte",
       "strip.label": "Projekte",
-      "strip.horas": "Stempeluhr-App — Kommen/Gehen, automatische WiFi-Erkennung, WhatsApp-Export, 97 Designs.",
       "shortHoras": "Stempeluhr, WiFi-Erkennung",
       "short3dmanager": "Angebote, Produktion und Kunden",
       "shortYoshiki": "Instrumental J-Trap und GΛRĀN",
-      "footer.3dmanager": "Ein Angebotsrechner für 3D-Druckdienste — ermittelt automatisch die tatsächlichen Kosten und den Mindestpreis.",
-      "footer.yoshikibeats": "Musikkanal — instrumental J-Trap, Djent, GARAN, und was gerade passend erscheint.",
-      "footer.visit": "Besuchen ↗",
       "footer.source": "💻 Quellcode & Installer auf GitHub",
       "footer.contact": "Fragen, Probleme, oder Vorschläge — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1095,16 +1030,10 @@
       "legal.title": "EULA / Disclaimer",
       "legal.summary": "Leggi il disclaimer completo",
       "legal.body": "Questo progetto è un lavoro amatoriale non commerciale e senza fini di lucro, realizzato puramente per amore e nostalgia verso il franchise \"Johnny Castaway\" / \"Screen Antics\". Non rivendico alcun diritto sul gioco originale, sulla sua grafica, suoni, personaggi o marchio — questi diritti appartengono a Sierra On-Line / Dynamix (e ai loro successori legali, tra cui Activision Blizzard). Il motore incluso è open source, scritto da zero osservando il comportamento del programma originale, senza usare alcun codice del gioco originale. I file di risorse originali NON sono distribuiti da me — ognuno deve procurarseli tramite una propria copia legittima del software originale. Questo progetto non è affiliato, sponsorizzato, approvato o in alcun modo associato a Sierra, Dynamix, Activision Blizzard, o a qualsiasi attuale detentore dei diritti.",
-      "footer.eyebrow": "Altri progetti di Yoshiki",
-      "footer.title": "Altri progetti",
       "strip.label": "Progetti",
-      "strip.horas": "App di timbratura — entrata/uscita, rilevamento WiFi automatico, esportazione WhatsApp, 97 temi.",
       "shortHoras": "Timbratura, rilevamento WiFi",
       "short3dmanager": "Preventivi, produzione e clienti",
       "shortYoshiki": "Strumentali J-Trap e GΛRĀN",
-      "footer.3dmanager": "Un calcolatore di preventivi per servizi di stampa 3D — calcola automaticamente il costo reale e il prezzo minimo.",
-      "footer.yoshikibeats": "Canale musicale — strumentale J-Trap, Djent, GARAN, e ciò che ispira al momento.",
-      "footer.visit": "Visita ↗",
       "footer.source": "💻 Codice sorgente e installer su GitHub",
       "footer.contact": "Domande, problemi, o suggerimenti — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1182,16 +1111,10 @@
       "legal.title": "EULA / Zastrzeżenie",
       "legal.summary": "Przeczytaj pełne zastrzeżenie",
       "legal.body": "Ten projekt jest niekomercyjną, non-profit pracą fanowską, stworzoną wyłącznie z miłości i nostalgii do serii \"Johnny Castaway\" / \"Screen Antics\". Nie roszczę sobie żadnych praw do oryginalnej gry, jej grafiki, dźwięków, postaci ani znaku towarowego — te prawa należą do Sierra On-Line / Dynamix (i ich prawnych następców, w tym Activision Blizzard). Dołączony silnik jest open source, napisany od podstaw poprzez obserwację zachowania oryginalnego programu, bez użycia jakiegokolwiek kodu z oryginalnej gry. Oryginalne pliki zasobów NIE są przeze mnie rozpowszechniane — każdy musi je zdobyć z własnej legalnej kopii oryginalnego oprogramowania. Ten projekt nie jest powiązany, sponsorowany, popierany ani w żaden sposób stowarzyszony z Sierra, Dynamix, Activision Blizzard, ani żadnym obecnym posiadaczem praw.",
-      "footer.eyebrow": "Więcej projektów Yoshiki",
-      "footer.title": "Inne projekty",
       "strip.label": "Projekty",
-      "strip.horas": "Aplikacja do rejestracji czasu pracy — wejście/wyjście, automatyczne wykrywanie WiFi, eksport WhatsApp, 97 motywów.",
       "shortHoras": "Rejestracja czasu, wykrywanie WiFi",
       "short3dmanager": "Wyceny, produkcja i klienci",
       "shortYoshiki": "Instrumentale J-Trap i GΛRĀN",
-      "footer.3dmanager": "Kalkulator wycen dla usług druku 3D — automatycznie oblicza rzeczywisty koszt i minimalną cenę.",
-      "footer.yoshikibeats": "Kanał muzyczny — instrumentalny J-Trap, Djent, GARAN, i to, co akurat pasuje.",
-      "footer.visit": "Odwiedź ↗",
       "footer.source": "💻 Kod źródłowy i instalator na GitHub",
       "footer.contact": "Pytania, problemy, lub sugestie — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1269,16 +1192,10 @@
       "legal.title": "EULA／免責事項",
       "legal.summary": "免責事項の全文を読む",
       "legal.body": "本プロジェクトは非営利・非商用のファン制作物であり、\"Johnny Castaway\"／\"Screen Antics\"シリーズへの愛とノスタルジーのみを動機として作られています。オリジナルゲーム、そのグラフィック、サウンド、キャラクター、商標についていかなる権利も主張しません — これらの権利はSierra On-Line／Dynamix（およびActivision Blizzardを含むその法的承継者）に帰属します。同梱のエンジンはオープンソースであり、オリジナルゲームのコードを一切使用せず、オリジナルプログラムの挙動を観察してゼロから書き起こしたものです。オリジナルのリソースファイルは私からは配布されません — 各自が正規のオリジナルソフトウェアのコピーから入手する必要があります。本プロジェクトはSierra、Dynamix、Activision Blizzard、または現在の権利保有者のいずれとも提携、後援、承認、その他いかなる関係もありません。",
-      "footer.eyebrow": "Yoshikiの他の作品",
-      "footer.title": "他のプロジェクト",
       "strip.label": "プロジェクト",
-      "strip.horas": "勤怠管理アプリ — 出退勤、WiFi自動検出、WhatsApp書き出し、97種類のテーマ。",
       "shortHoras": "勤怠管理、WiFi自動検出",
       "short3dmanager": "見積もり・生産・顧客管理",
       "shortYoshiki": "インストゥルメンタルのJ-TrapとGΛRĀN",
-      "footer.3dmanager": "3Dプリントサービス向けの見積もり計算ツール — 実コストと最低価格を自動算出します。",
-      "footer.yoshikibeats": "音楽チャンネル — インストゥルメンタルのJ-Trap、Djent、GARAN、その時々の気分で色々。",
-      "footer.visit": "訪問する ↗",
       "footer.source": "💻 GitHubでソースコードとインストーラーを公開中",
       "footer.contact": "ご質問・不具合報告・ご提案は — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1356,16 +1273,10 @@
       "legal.title": "EULA / Disclaimer",
       "legal.summary": "Lees de volledige disclaimer",
       "legal.body": "Dit project is een niet-commercieel fanwerk zonder winstoogmerk, puur gemaakt uit liefde en nostalgie voor de \"Johnny Castaway\" / \"Screen Antics\"-franchise. Ik claim geen enkel recht op het originele spel, de graphics, geluiden, personages of het handelsmerk ervan — die rechten behoren toe aan Sierra On-Line / Dynamix (en hun juridische opvolgers, waaronder Activision Blizzard). De meegeleverde engine is open source, vanaf nul geschreven door het gedrag van het originele programma te observeren, zonder enige code van het originele spel te gebruiken. De originele resourcebestanden worden NIET door mij verspreid — iedereen moet deze verkrijgen via een eigen legitieme kopie van de originele software. Dit project is op geen enkele manier verbonden aan, gesponsord door, goedgekeurd door, of geassocieerd met Sierra, Dynamix, Activision Blizzard, of enige huidige rechthebbende.",
-      "footer.eyebrow": "Meer van Yoshiki",
-      "footer.title": "Andere projecten",
       "strip.label": "Projecten",
-      "strip.horas": "Prikklok-app — in-/uitklokken, automatische WiFi-detectie, WhatsApp-export, 97 thema's.",
       "shortHoras": "Prikklok, WiFi-detectie",
       "short3dmanager": "Offertes, productie en klanten",
       "shortYoshiki": "Instrumentale J-Trap en GΛRĀN",
-      "footer.3dmanager": "Een offertecalculator voor 3D-printdiensten — berekent automatisch de werkelijke kosten en de minimumprijs.",
-      "footer.yoshikibeats": "Muziekkanaal — instrumentale J-Trap, Djent, GARAN, en wat er op dat moment goed voelt.",
-      "footer.visit": "Bezoek ↗",
       "footer.source": "💻 Broncode & installatieprogramma op GitHub",
       "footer.contact": "Vragen, problemen, of suggesties — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1443,16 +1354,10 @@
       "legal.title": "EULA / Prohlášení o vyloučení odpovědnosti",
       "legal.summary": "Přečíst celé prohlášení",
       "legal.body": "Tento projekt je nekomerční fanouškovská práce bez zisku, vytvořená čistě z lásky a nostalgie ke značce \"Johnny Castaway\" / \"Screen Antics\". Nenárokuji si žádná práva k původní hře, jejím grafikám, zvukům, postavám ani ochranné známce — tato práva náleží Sierra On-Line / Dynamix (a jejich právním nástupcům, včetně Activision Blizzard). Přiložený engine je open source, napsaný od nuly pozorováním chování původního programu, bez použití jakéhokoli kódu z původní hry. Originální soubory zdrojů NEJSOU mnou distribuovány — každý si je musí opatřit z vlastní legitimní kopie originálního softwaru. Tento projekt není spojen, sponzorován, podporován ani žádným způsobem přidružen k Sierra, Dynamix, Activision Blizzard, ani žádnému současnému držiteli práv.",
-      "footer.eyebrow": "Další projekty od Yoshiki",
-      "footer.title": "Další projekty",
       "strip.label": "Projekty",
-      "strip.horas": "Aplikace pro docházku — příchod/odchod, automatická detekce WiFi, export do WhatsApp, 97 motivů.",
       "shortHoras": "Docházka, detekce WiFi",
       "short3dmanager": "Nabídky, výroba a klienti",
       "shortYoshiki": "Instrumentální J-Trap a GΛRĀN",
-      "footer.3dmanager": "Kalkulačka nabídek pro služby 3D tisku — automaticky vypočítá skutečné náklady a minimální cenu.",
-      "footer.yoshikibeats": "Hudební kanál — instrumentální J-Trap, Djent, GARAN, a cokoli, co zrovna sedí.",
-      "footer.visit": "Navštívit ↗",
       "footer.source": "💻 Zdrojový kód a instalátor na GitHubu",
       "footer.contact": "Dotazy, problémy, nebo návrhy — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1530,16 +1435,10 @@
       "legal.title": "最终用户许可协议／免责声明",
       "legal.summary": "阅读完整免责声明",
       "legal.body": "本项目是一个非商业、非营利的粉丝作品，纯粹出于对\"Johnny Castaway\"／\"Screen Antics\"系列的热爱与怀旧之情而制作。本人不对原版游戏及其图形、音效、角色或商标主张任何权利 — 这些权利归 Sierra On-Line／Dynamix（及其法定继承者，包括 Activision Blizzard）所有。所含引擎为开源代码，通过观察原版程序的行为从零编写，未使用原版游戏的任何代码。原始资源文件本人并不提供分发 — 每位用户都必须通过自己合法拥有的原版软件副本获取。本项目与 Sierra、Dynamix、Activision Blizzard 或任何现任权利持有者均无任何关联、赞助、背书或其他形式的联系。",
-      "footer.eyebrow": "Yoshiki 的更多项目",
-      "footer.title": "其他项目",
       "strip.label": "项目",
-      "strip.horas": "打卡应用 — 上下班打卡、WiFi自动检测、WhatsApp导出、97种主题。",
       "shortHoras": "打卡、WiFi自动检测",
       "short3dmanager": "报价、生产与客户",
       "shortYoshiki": "J-Trap 与 GΛRĀN 器乐",
-      "footer.3dmanager": "面向3D打印服务的报价计算器 — 自动计算实际成本与最低价格。",
-      "footer.yoshikibeats": "音乐频道 — 器乐风格的 J-Trap、Djent、GARAN，以及当下心之所向的任何曲风。",
-      "footer.visit": "访问 ↗",
       "footer.source": "💻 在 GitHub 上查看源代码与安装程序",
       "footer.contact": "问题、故障反馈或建议 — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1617,16 +1516,10 @@
       "legal.title": "Лицензионное соглашение / Отказ от ответственности",
       "legal.summary": "Прочитать полный текст отказа от ответственности",
       "legal.body": "Этот проект — некоммерческая, бесприбыльная фанатская работа, созданная исключительно из любви и ностальгии по франшизе \"Johnny Castaway\" / \"Screen Antics\". Я не заявляю никаких прав на оригинальную игру, её графику, звуки, персонажей или товарный знак — эти права принадлежат Sierra On-Line / Dynamix (и их законным правопреемникам, включая Activision Blizzard). Включённый движок имеет открытый исходный код, написан с нуля путём наблюдения за поведением оригинальной программы, без использования какого-либо кода из оригинальной игры. Оригинальные файлы ресурсов НЕ распространяются мной — каждый должен получить их из собственной легальной копии оригинального программного обеспечения. Этот проект никак не связан, не спонсируется, не одобрен и никаким образом не ассоциирован с Sierra, Dynamix, Activision Blizzard или каким-либо текущим правообладателем.",
-      "footer.eyebrow": "Другие проекты Yoshiki",
-      "footer.title": "Другие проекты",
       "strip.label": "Проекты",
-      "strip.horas": "Приложение для учёта времени — приход/уход, автоматическое определение по WiFi, экспорт в WhatsApp, 97 тем.",
       "shortHoras": "Учёт времени, определение по WiFi",
       "short3dmanager": "Сметы, производство и клиенты",
       "shortYoshiki": "Инструментал J-Trap и GΛRĀN",
-      "footer.3dmanager": "Калькулятор смет для услуг 3D-печати — автоматически рассчитывает реальную стоимость и минимальную цену.",
-      "footer.yoshikibeats": "Музыкальный канал — инструментал J-Trap, Djent, GARAN и всё, что кажется подходящим в моменте.",
-      "footer.visit": "Посетить ↗",
       "footer.source": "💻 Исходный код и установщик на GitHub",
       "footer.contact": "Вопросы, проблемы, или предложения — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1704,16 +1597,10 @@
       "legal.title": "EULA / 면책 조항",
       "legal.summary": "전체 면책 조항 읽기",
       "legal.body": "이 프로젝트는 \"Johnny Castaway\" / \"Screen Antics\" 시리즈에 대한 순수한 애정과 향수로 만들어진 비상업적, 비영리 팬 작품입니다. 원작 게임과 그 그래픽, 사운드, 캐릭터, 상표에 대해 어떠한 권리도 주장하지 않습니다 — 이러한 권리는 Sierra On-Line / Dynamix(및 Activision Blizzard를 포함한 법적 승계자)에 있습니다. 포함된 엔진은 오픈소스이며, 원작 게임의 어떤 코드도 사용하지 않고 원본 프로그램의 동작을 관찰하여 처음부터 작성되었습니다. 원본 리소스 파일은 본인이 배포하지 않습니다 — 각자 원본 소프트웨어의 정당한 사본을 통해 직접 구해야 합니다. 이 프로젝트는 Sierra, Dynamix, Activision Blizzard 또는 현재의 권리 보유자와 어떠한 제휴, 후원, 승인 또는 연관 관계도 없습니다.",
-      "footer.eyebrow": "Yoshiki의 다른 프로젝트",
-      "footer.title": "다른 프로젝트",
       "strip.label": "프로젝트",
-      "strip.horas": "근태 관리 앱 — 출퇴근, WiFi 자동 감지, WhatsApp 내보내기, 97가지 테마.",
       "shortHoras": "근태 관리, WiFi 감지",
       "short3dmanager": "견적, 생산, 고객 관리",
       "shortYoshiki": "인스트루멘탈 J-Trap과 GΛRĀN",
-      "footer.3dmanager": "3D 프린팅 서비스를 위한 견적 계산기 — 실제 비용과 최소 가격을 자동으로 계산합니다.",
-      "footer.yoshikibeats": "음악 채널 — 인스트루멘탈 J-Trap, Djent, GARAN, 그리고 그때그때 끌리는 음악.",
-      "footer.visit": "방문하기 ↗",
       "footer.source": "💻 GitHub에서 소스 코드 및 설치 프로그램 확인",
       "footer.contact": "질문, 문제, 또는 제안 — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1791,16 +1678,10 @@
       "legal.title": "EULA / अस्वीकरण",
       "legal.summary": "पूर्ण अस्वीकरण पढ्नुहोस्",
       "legal.body": "यो परियोजना \"Johnny Castaway\" / \"Screen Antics\" फ्र्यान्चाइजीप्रतिको प्रेम र पुरानो सम्झनाबाट मात्र बनाइएको गैर-व्यावसायिक, नाफारहित फ्यान कार्य हो। म मूल खेल, यसको ग्राफिक्स, आवाज, पात्रहरू, वा ट्रेडमार्कमाथि कुनै पनि अधिकार दाबी गर्दिनँ — ती अधिकारहरू Sierra On-Line / Dynamix (र Activision Blizzard सहित तिनीहरूको कानुनी उत्तराधिकारीहरू) को हुन्। समावेश गरिएको इन्जिन खुला-स्रोत हो, मूल खेलको कुनै पनि कोड प्रयोग नगरी मूल प्रोग्रामको व्यवहार अवलोकन गरेर सुरुदेखि लेखिएको हो। मूल स्रोत फाइलहरू मैले वितरण गर्दिनँ — प्रत्येकले आफ्नै वैध मूल सफ्टवेयरको प्रतिबाट तिनीहरू प्राप्त गर्नुपर्छ। यो परियोजना Sierra, Dynamix, Activision Blizzard, वा हालको कुनै पनि अधिकार धारकसँग कुनै पनि किसिमले सम्बद्ध, प्रायोजित, समर्थित, वा जोडिएको छैन।",
-      "footer.eyebrow": "Yoshiki का थप परियोजनाहरू",
-      "footer.title": "अन्य परियोजनाहरू",
       "strip.label": "परियोजनाहरू",
-      "strip.horas": "समय दर्ता एप — भित्र/बाहिर, स्वचालित WiFi पहिचान, WhatsApp निर्यात, ९७ थिमहरू।",
       "shortHoras": "समय दर्ता, WiFi पहिचान",
       "short3dmanager": "मूल्य उद्धरण, उत्पादन र ग्राहक",
       "shortYoshiki": "इन्स्ट्रुमेन्टल J-Trap र GΛRĀN",
-      "footer.3dmanager": "3D प्रिन्टिङ सेवाहरूको लागि मूल्य उद्धरण क्याल्कुलेटर — वास्तविक लागत र न्यूनतम मूल्य स्वचालित रूपमा गणना गर्छ।",
-      "footer.yoshikibeats": "सङ्गीत च्यानल — इन्स्ट्रुमेन्टल J-Trap, Djent, GARAN, र त्यस बेला जे उपयुक्त लाग्छ।",
-      "footer.visit": "भ्रमण गर्नुहोस् ↗",
       "footer.source": "💻 GitHub मा स्रोत कोड र इन्स्टलर",
       "footer.contact": "प्रश्न, समस्या, वा सुझावहरू — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     }
