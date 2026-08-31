@@ -84,25 +84,33 @@
 
   /* OTHER PROJECTS STRIP */
   .proj-strip-wrap { background: var(--paper); border-bottom: 1px solid var(--line); padding: 12px 0; }
-  .proj-strip-row { display: flex; align-items: stretch; gap: 12px; max-width: 772px; margin: 0 auto; padding: 0 24px; }
+  .proj-strip-row { display: flex; align-items: stretch; height: 104px; gap: 12px; max-width: 772px; margin: 0; padding: 0 24px; }
   .proj-strip-label {
-    writing-mode: vertical-rl; text-orientation: upright; font-family: var(--font-mono); font-size: 0.64rem;
-    letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); margin: 0; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
+    writing-mode: vertical-rl; text-orientation: upright; font-family: var(--font-mono); font-size: 0.5rem;
+    letter-spacing: 0.04em; line-height: 1; text-transform: uppercase; color: var(--ink-soft); margin: 0; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
   }
-  .proj-strip { display: flex; gap: 8px; overflow-x: auto; flex: 1; padding-bottom: 4px; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+  .proj-strip { display: flex; gap: 9px; overflow-x: auto; overflow-y: hidden; flex: 1; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
   .proj-strip::-webkit-scrollbar { height: 6px; }
   .proj-strip::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
   .proj-card-sm {
-    scroll-snap-align: start; flex: 0 0 auto; width: 128px; min-height: 78px; border: 1px solid var(--line);
-    border-radius: 9px; padding: 7px 9px; text-decoration: none; display: flex; flex-direction: column; gap: 2px;
+    scroll-snap-align: start; flex: 0 0 auto; width: 142px; border: 1px solid var(--line);
+    border-radius: 9px; padding: 8px 10px; text-decoration: none; display: flex; flex-direction: column; gap: 2px;
     background-size: cover; background-position: center; position: relative; overflow: hidden;
     transition: transform 0.12s ease, border-color 0.12s ease;
   }
   .proj-card-sm:hover { transform: translateY(-2px); border-color: var(--ocean); }
-  .proj-card-sm .proj-icon-sm { position: absolute; right: -8px; bottom: -12px; font-size: 2.6rem; margin: 0; opacity: 0.35; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5)); line-height: 1; }
-  .proj-card-sm h4 { position: relative; z-index: 1; font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; color: #fff; margin: 0; text-shadow: 0 1px 4px rgba(0,0,0,0.7); }
-  .proj-card-sm span.desc { position: relative; z-index: 1; font-size: 0.58rem; line-height: 1.2; color: rgba(255,255,255,0.88); text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+  .proj-card-sm .proj-icon-sm { position: absolute; right: -6px; bottom: 4px; font-size: 4.6rem; margin: 0; opacity: 0.4; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5)); line-height: 1; }
+  .proj-card-sm h4 { position: relative; z-index: 1; font-family: var(--font-display); font-size: 0.76rem; font-weight: 700; color: #fff; margin: 0; text-shadow: 0 1px 4px rgba(0,0,0,0.7); }
+  .proj-card-sm span.desc { position: relative; z-index: 1; font-size: 0.62rem; line-height: 1.25; color: rgba(255,255,255,0.88); text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+  .proj-nav {
+    flex-shrink: 0; width: 26px; align-self: stretch; border: 1px solid var(--line); background: var(--card);
+    color: var(--ink-soft); border-radius: 8px; cursor: pointer; font-size: 1.2rem; line-height: 1;
+    display: flex; align-items: center; justify-content: center; padding: 0;
+    transition: background 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+  }
+  .proj-nav:hover:not(:disabled) { background: var(--ocean); color: #08131c; border-color: var(--ocean); }
+  .proj-nav:disabled { opacity: 0.3; cursor: default; }
   .proj-card-sm.grad-horas { background-image: linear-gradient(165deg, rgba(8,11,16,0.35), rgba(6,33,10,0.55) 55%, rgba(76,175,80,0.75) 100%), linear-gradient(160deg, #06210a, #1b5e20 55%, #4caf50); }
   .proj-card-sm.grad-3d { background-image: linear-gradient(165deg, rgba(8,11,16,0.35), rgba(22,52,48,0.55) 55%, rgba(201,106,46,0.75) 100%), linear-gradient(135deg, #163430, #2e8f87 60%, #c96a2e); }
   .proj-card-sm.grad-yb { background-image: linear-gradient(165deg, rgba(8,11,16,0.35), rgba(48,29,99,0.6) 55%, rgba(216,38,140,0.75) 100%), linear-gradient(135deg, #15102b, #4c1d95 55%, #d8268c); }
@@ -337,7 +345,8 @@
 <div class="proj-strip-wrap">
   <div class="proj-strip-row">
   <p class="proj-strip-label" data-i18n="strip.label"></p>
-  <div class="proj-strip">
+  <button type="button" class="proj-nav proj-nav-prev" onclick="scrollProjStrip(this,-1)" aria-label="Previous">&#8249;</button>
+  <div class="proj-strip" onscroll="updateProjNav(this)">
     <a class="proj-card-sm grad-horas" href="https://yoluha.github.io/horas/">
       <span class="proj-icon-sm">⏱️</span>
       <h4>Horas</h4>
@@ -354,6 +363,7 @@
       <span class="desc" data-i18n="shortYoshiki"></span>
     </a>
   </div>
+  <button type="button" class="proj-nav proj-nav-next" onclick="scrollProjStrip(this,1)" aria-label="Next">&#8250;</button>
   </div>
 </div>
 
@@ -1871,4 +1881,22 @@
   });
   applyFilter();
 })();
+
+function scrollProjStrip(btn, dir) {
+  const strip = btn.parentElement.querySelector('.proj-strip');
+  const card = strip.querySelector('.proj-card-sm');
+  const step = card ? card.offsetWidth + 9 : 150;
+  strip.scrollBy({ left: dir * step * 2, behavior: 'smooth' });
+}
+function updateProjNav(strip) {
+  const row = strip.parentElement;
+  const prev = row.querySelector('.proj-nav-prev');
+  const next = row.querySelector('.proj-nav-next');
+  if (!prev || !next) return;
+  const max = strip.scrollWidth - strip.clientWidth;
+  prev.disabled = strip.scrollLeft <= 2;
+  next.disabled = strip.scrollLeft >= max - 2;
+}
+document.querySelectorAll('.proj-strip').forEach(updateProjNav);
+window.addEventListener('resize', () => document.querySelectorAll('.proj-strip').forEach(updateProjNav));
 </script>
