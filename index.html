@@ -86,9 +86,8 @@
   .proj-strip-wrap { background: var(--paper); border-bottom: 1px solid var(--line); padding: 12px 0; }
   .proj-strip-row { display: flex; align-items: stretch; height: 104px; gap: 12px; max-width: 772px; margin: 0; padding: 0 24px; }
   @keyframes projLabelGlow {
-    0% { text-shadow: 0 0 3px var(--ocean); }
-    50% { text-shadow: 0 0 10px var(--ocean), 0 0 4px var(--ocean); }
-    100% { text-shadow: 0 0 3px var(--ocean); }
+    0%, 100% { color: var(--ink-soft); text-shadow: 0 0 4px var(--ocean); }
+    50% { color: var(--ocean); text-shadow: 0 0 16px var(--ocean), 0 0 7px var(--ocean); }
   }
   .proj-strip-label {
     writing-mode: vertical-rl; text-orientation: upright; font-family: var(--font-mono); font-size: 0.5rem;
