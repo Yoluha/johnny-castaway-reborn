@@ -85,10 +85,16 @@
   /* OTHER PROJECTS STRIP */
   .proj-strip-wrap { background: var(--paper); border-bottom: 1px solid var(--line); padding: 12px 0; }
   .proj-strip-row { display: flex; align-items: stretch; height: 104px; gap: 12px; max-width: 772px; margin: 0; padding: 0 24px; }
+  @keyframes projLabelGlow {
+    0% { text-shadow: 0 0 3px var(--ocean); }
+    50% { text-shadow: 0 0 10px var(--ocean), 0 0 4px var(--ocean); }
+    100% { text-shadow: 0 0 3px var(--ocean); }
+  }
   .proj-strip-label {
     writing-mode: vertical-rl; text-orientation: upright; font-family: var(--font-mono); font-size: 0.5rem;
     letter-spacing: 0.04em; line-height: 1; text-transform: uppercase; color: var(--ink-soft); margin: 0; flex-shrink: 0;
     display: flex; align-items: center; justify-content: center; overflow: hidden;
+    animation: projLabelGlow 1.5s ease-in-out infinite;
   }
   .proj-strip-viewport { position: relative; flex: 1; min-width: 0; }
   .proj-strip { display: flex; height: 100%; gap: 9px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
