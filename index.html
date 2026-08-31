@@ -84,7 +84,7 @@
 
   /* OTHER PROJECTS STRIP */
   .proj-strip-wrap { background: var(--paper); border-bottom: 1px solid var(--line); padding: 12px 0; }
-  .proj-strip-row { display: flex; align-items: stretch; height: 104px; gap: 12px; max-width: 772px; margin: 0; padding: 0 24px; }
+  .proj-strip-row { display: flex; align-items: stretch; height: 104px; gap: 12px; max-width: 812px; margin: 0; padding: 0 24px; }
   @keyframes projLabelGlow {
     0%, 100% { color: var(--ink-soft); text-shadow: 0 0 4px var(--ocean); }
     50% { color: var(--ocean); text-shadow: 0 0 16px var(--ocean), 0 0 7px var(--ocean); }
@@ -348,7 +348,11 @@
   }
   @media (prefers-reduced-motion: reduce) {
     .cloud, .sun-ill, .sea::before, .castaway { animation: none !important; }
+    .reveal { opacity: 1; transform: none; transition: none; }
   }
+
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
 </style>
 
 <div class="proj-strip-wrap">
@@ -428,7 +432,7 @@
 
 <!-- ================= FEATURES ================= -->
 <section>
-  <div class="container">
+  <div class="container reveal">
     <div class="section-head">
       <span class="eyebrow" data-i18n="feat.eyebrow"></span>
       <h2 data-i18n="feat.title"></h2>
@@ -464,7 +468,7 @@
 
 <!-- ================= INSTALL ================= -->
 <section id="install">
-  <div class="container">
+  <div class="container reveal">
     <div class="section-head">
       <span class="eyebrow" data-i18n="install.eyebrow"></span>
       <h2 data-i18n="install.title"></h2>
@@ -475,7 +479,7 @@
 
 <!-- ================= ORIGINAL FILES ================= -->
 <section>
-  <div class="container">
+  <div class="container reveal">
     <div class="section-head">
       <span class="eyebrow" data-i18n="files.eyebrow"></span>
       <h2 data-i18n="files.title"></h2>
@@ -487,7 +491,7 @@
 
 <!-- ================= SETTINGS TABLE ================= -->
 <section>
-  <div class="container">
+  <div class="container reveal">
     <div class="section-head">
       <span class="eyebrow" data-i18n="settings.eyebrow"></span>
       <h2 data-i18n="settings.title"></h2>
@@ -500,7 +504,7 @@
 
 <!-- ================= WALLPAPER ENGINE ================= -->
 <section>
-  <div class="container">
+  <div class="container reveal">
     <div class="section-head">
       <span class="eyebrow" data-i18n="wp.eyebrow"></span>
       <h2 data-i18n="wp.title"></h2>
@@ -512,7 +516,7 @@
 
 <!-- ================= CLI ================= -->
 <section>
-  <div class="container">
+  <div class="container reveal">
     <div class="section-head">
       <span class="eyebrow" data-i18n="cli.eyebrow"></span>
       <h2 data-i18n="cli.title"></h2>
@@ -525,7 +529,7 @@
 
 <!-- ================= LEGAL ================= -->
 <section>
-  <div class="container">
+  <div class="container reveal">
     <div class="section-head">
       <span class="eyebrow" data-i18n="legal.eyebrow"></span>
       <h2 data-i18n="legal.title"></h2>
@@ -1930,4 +1934,21 @@ function updateProjNav(strip) {
 }
 document.querySelectorAll('.proj-strip').forEach(updateProjNav);
 window.addEventListener('resize', () => document.querySelectorAll('.proj-strip').forEach(updateProjNav));
+
+(function initScrollReveal() {
+  const targets = document.querySelectorAll('.reveal');
+  if (!targets.length || typeof IntersectionObserver === 'undefined') {
+    targets.forEach(el => el.classList.add('in-view'));
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  targets.forEach(el => observer.observe(el));
+})();
 </script>
