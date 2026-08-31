@@ -83,21 +83,26 @@
   .langswitch { display: flex; gap: 4px; font-family: var(--font-mono); font-size: 0.78rem; }
 
   /* OTHER PROJECTS STRIP */
-  .proj-strip-wrap { background: var(--paper-alt); border-bottom: 1px solid var(--line); padding: 14px 0; }
-  .proj-strip-label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 10px 0; padding: 0 24px; max-width: 772px; margin-left: auto; margin-right: auto; }
-  .proj-strip { display: flex; gap: 10px; overflow-x: auto; padding: 0 24px 4px 24px; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+  .proj-strip-wrap { background: var(--paper); border-bottom: 1px solid var(--line); padding: 12px 0; }
+  .proj-strip-row { display: flex; align-items: stretch; gap: 12px; max-width: 772px; margin: 0 auto; padding: 0 24px; }
+  .proj-strip-label {
+    writing-mode: vertical-rl; text-orientation: upright; font-family: var(--font-mono); font-size: 0.64rem;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); margin: 0; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .proj-strip { display: flex; gap: 8px; overflow-x: auto; flex: 1; padding-bottom: 4px; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
   .proj-strip::-webkit-scrollbar { height: 6px; }
   .proj-strip::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
   .proj-card-sm {
-    scroll-snap-align: start; flex: 0 0 auto; width: 148px; min-height: 92px; border: 1px solid var(--line);
-    border-radius: 10px; padding: 8px 10px; text-decoration: none; display: flex; flex-direction: column; gap: 2px;
-    background-size: cover; background-position: center;
+    scroll-snap-align: start; flex: 0 0 auto; width: 128px; min-height: 78px; border: 1px solid var(--line);
+    border-radius: 9px; padding: 7px 9px; text-decoration: none; display: flex; flex-direction: column; gap: 2px;
+    background-size: cover; background-position: center; position: relative; overflow: hidden;
     transition: transform 0.12s ease, border-color 0.12s ease;
   }
   .proj-card-sm:hover { transform: translateY(-2px); border-color: var(--ocean); }
-  .proj-card-sm .proj-icon-sm { font-size: 1.1rem; margin-bottom: 4px; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.6)); }
-  .proj-card-sm h4 { font-family: var(--font-display); font-size: 0.76rem; font-weight: 700; color: #fff; margin: 0; text-shadow: 0 1px 4px rgba(0,0,0,0.7); }
-  .proj-card-sm span.desc { font-size: 0.63rem; line-height: 1.25; color: rgba(255,255,255,0.88); text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+  .proj-card-sm .proj-icon-sm { position: absolute; right: -8px; bottom: -12px; font-size: 2.6rem; margin: 0; opacity: 0.35; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5)); line-height: 1; }
+  .proj-card-sm h4 { position: relative; z-index: 1; font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; color: #fff; margin: 0; text-shadow: 0 1px 4px rgba(0,0,0,0.7); }
+  .proj-card-sm span.desc { position: relative; z-index: 1; font-size: 0.58rem; line-height: 1.2; color: rgba(255,255,255,0.88); text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
   .proj-card-sm.grad-horas { background-image: linear-gradient(165deg, rgba(8,11,16,0.35), rgba(6,33,10,0.55) 55%, rgba(76,175,80,0.75) 100%), linear-gradient(160deg, #06210a, #1b5e20 55%, #4caf50); }
   .proj-card-sm.grad-3d { background-image: linear-gradient(165deg, rgba(8,11,16,0.35), rgba(22,52,48,0.55) 55%, rgba(201,106,46,0.75) 100%), linear-gradient(135deg, #163430, #2e8f87 60%, #c96a2e); }
   .proj-card-sm.grad-yb { background-image: linear-gradient(165deg, rgba(8,11,16,0.35), rgba(48,29,99,0.6) 55%, rgba(216,38,140,0.75) 100%), linear-gradient(135deg, #15102b, #4c1d95 55%, #d8268c); }
@@ -330,6 +335,7 @@
 </style>
 
 <div class="proj-strip-wrap">
+  <div class="proj-strip-row">
   <p class="proj-strip-label" data-i18n="strip.label"></p>
   <div class="proj-strip">
     <a class="proj-card-sm grad-horas" href="https://yoluha.github.io/horas/">
@@ -347,6 +353,7 @@
       <h4>Yoshiki Beats</h4>
       <span class="desc" data-i18n="shortYoshiki"></span>
     </a>
+  </div>
   </div>
 </div>
 
@@ -623,7 +630,7 @@
       "legal.body": "This project is a non-commercial, not-for-profit fan work, made purely out of love and nostalgia for the \"Johnny Castaway\" / \"Screen Antics\" franchise. I claim no rights whatsoever over the original game, its graphics, sounds, characters, or trademark — those rights belong to Sierra On-Line / Dynamix (and their legal successors, including Activision Blizzard). The included engine is open source, written from scratch by observing the original program's behavior, without using any code from the original game. The original resource files are NOT distributed by me — everyone must obtain them from their own legitimate copy of the original software. This project is not affiliated with, sponsored by, endorsed by, or associated in any way with Sierra, Dynamix, Activision Blizzard, or any current rights holder.",
       "footer.eyebrow": "More from Yoshiki",
       "footer.title": "Other projects",
-      "strip.label": "Other projects",
+      "strip.label": "Projects",
       "strip.horas": "Time clock app — clock in/out, WiFi auto-detect, WhatsApp export, 97 themes.",
       "shortHoras": "Time clock, WiFi auto-detect",
       "short3dmanager": "Quotes, production and clients",
@@ -710,7 +717,7 @@
       "legal.body": "Este projeto é um trabalho de fãs, não-comercial e sem fins lucrativos, feito por puro amor e nostalgia pela franquia \"Johnny Castaway\" / \"Screen Antics\". Não reivindico qualquer direito sobre o jogo original, os seus gráficos, sons, personagens ou marca — esses direitos pertencem à Sierra On-Line / Dynamix (e aos seus sucessores legais, incluindo a Activision Blizzard). O motor incluído é código aberto, escrito de raiz através da observação do comportamento do programa original. Os ficheiros de recursos originais NÃO são distribuídos por mim — cada pessoa deve obtê-los a partir da sua própria cópia legítima. Este projeto não é afiliado, patrocinado, aprovado, nem associado de qualquer forma à Sierra, Dynamix, Activision Blizzard, ou a qualquer atual detentor dos direitos.",
       "footer.eyebrow": "Mais do Yoshiki",
       "footer.title": "Outros projetos",
-      "strip.label": "Outros projetos",
+      "strip.label": "Projetos",
       "strip.horas": "App de picar ponto — entrada/saída, deteção WiFi, envio por WhatsApp, 97 temas.",
       "shortHoras": "Ponto e deteção por WiFi",
       "short3dmanager": "Orçamentos, produção e clientes",
@@ -797,7 +804,7 @@
       "legal.body": "Este proyecto es un trabajo de fans, no comercial y sin fines de lucro, hecho por puro amor y nostalgia hacia la franquicia \"Johnny Castaway\" / \"Screen Antics\". No reclamo ningún derecho sobre el juego original, sus gráficos, sonidos, personajes o marca — esos derechos pertenecen a Sierra On-Line / Dynamix (y a sus sucesores legales, incluyendo Activision Blizzard). El motor incluido es de código abierto, escrito desde cero mediante la observación del comportamiento del programa original. Los archivos de recursos originales NO son distribuidos por mí. Este proyecto no está afiliado, patrocinado, respaldado, ni asociado de ninguna manera con Sierra, Dynamix, Activision Blizzard, ni con ningún actual titular de los derechos.",
       "footer.eyebrow": "Más de Yoshiki",
       "footer.title": "Otros proyectos",
-      "strip.label": "Otros proyectos",
+      "strip.label": "Proyectos",
       "strip.horas": "App de fichaje — entrada/salida, detección de WiFi, envío por WhatsApp, 97 temas.",
       "shortHoras": "Fichaje y detección por WiFi",
       "short3dmanager": "Presupuestos, producción y clientes",
@@ -884,7 +891,7 @@
       "legal.body": "Ce projet est une œuvre de fan non commerciale et à but non lucratif, réalisée purement par amour et nostalgie pour la franchise \"Johnny Castaway\" / \"Screen Antics\". Je ne revendique aucun droit sur le jeu original, ses graphismes, sons, personnages ou marques — ces droits appartiennent à Sierra On-Line / Dynamix (et leurs successeurs légaux, y compris Activision Blizzard). Le moteur inclus est open source, écrit de zéro en observant le comportement du programme original, sans utiliser aucun code du jeu original. Les fichiers de ressources originaux ne sont PAS distribués par moi — chacun doit se les procurer via sa propre copie légitime du logiciel original. Ce projet n'est affilié, sponsorisé, approuvé ni associé d'aucune manière à Sierra, Dynamix, Activision Blizzard, ou tout détenteur actuel des droits.",
       "footer.eyebrow": "Plus de projets de Yoshiki",
       "footer.title": "Autres projets",
-      "strip.label": "Autres projets",
+      "strip.label": "Projets",
       "strip.horas": "App de pointage — arrivée/départ, détection WiFi automatique, export WhatsApp, 97 thèmes.",
       "shortHoras": "Pointage, détection WiFi",
       "short3dmanager": "Devis, production et clients",
@@ -971,7 +978,7 @@
       "legal.body": "Dieses Projekt ist eine nicht-kommerzielle, gemeinnützige Fan-Arbeit, rein aus Liebe und Nostalgie zur Marke \"Johnny Castaway\" / \"Screen Antics\" entstanden. Ich beanspruche keinerlei Rechte am Originalspiel, seinen Grafiken, Sounds, Charakteren oder Marken — diese Rechte gehören Sierra On-Line / Dynamix (und deren Rechtsnachfolgern, einschließlich Activision Blizzard). Die enthaltene Engine ist Open Source, von Grund auf neu geschrieben durch Beobachtung des Verhaltens des Originalprogramms, ohne jeglichen Code aus dem Originalspiel zu verwenden. Die originalen Ressourcendateien werden von mir NICHT verbreitet — jeder muss sie sich über seine eigene legitime Kopie der Originalsoftware beschaffen. Dieses Projekt steht in keiner Verbindung zu, wird nicht gesponsert, unterstützt oder ist auf irgendeine Weise verbunden mit Sierra, Dynamix, Activision Blizzard oder einem aktuellen Rechteinhaber.",
       "footer.eyebrow": "Mehr von Yoshiki",
       "footer.title": "Weitere Projekte",
-      "strip.label": "Weitere Projekte",
+      "strip.label": "Projekte",
       "strip.horas": "Stempeluhr-App — Kommen/Gehen, automatische WiFi-Erkennung, WhatsApp-Export, 97 Designs.",
       "shortHoras": "Stempeluhr, WiFi-Erkennung",
       "short3dmanager": "Angebote, Produktion und Kunden",
@@ -1058,7 +1065,7 @@
       "legal.body": "Questo progetto è un lavoro amatoriale non commerciale e senza fini di lucro, realizzato puramente per amore e nostalgia verso il franchise \"Johnny Castaway\" / \"Screen Antics\". Non rivendico alcun diritto sul gioco originale, sulla sua grafica, suoni, personaggi o marchio — questi diritti appartengono a Sierra On-Line / Dynamix (e ai loro successori legali, tra cui Activision Blizzard). Il motore incluso è open source, scritto da zero osservando il comportamento del programma originale, senza usare alcun codice del gioco originale. I file di risorse originali NON sono distribuiti da me — ognuno deve procurarseli tramite una propria copia legittima del software originale. Questo progetto non è affiliato, sponsorizzato, approvato o in alcun modo associato a Sierra, Dynamix, Activision Blizzard, o a qualsiasi attuale detentore dei diritti.",
       "footer.eyebrow": "Altri progetti di Yoshiki",
       "footer.title": "Altri progetti",
-      "strip.label": "Altri progetti",
+      "strip.label": "Progetti",
       "strip.horas": "App di timbratura — entrata/uscita, rilevamento WiFi automatico, esportazione WhatsApp, 97 temi.",
       "shortHoras": "Timbratura, rilevamento WiFi",
       "short3dmanager": "Preventivi, produzione e clienti",
@@ -1145,7 +1152,7 @@
       "legal.body": "Ten projekt jest niekomercyjną, non-profit pracą fanowską, stworzoną wyłącznie z miłości i nostalgii do serii \"Johnny Castaway\" / \"Screen Antics\". Nie roszczę sobie żadnych praw do oryginalnej gry, jej grafiki, dźwięków, postaci ani znaku towarowego — te prawa należą do Sierra On-Line / Dynamix (i ich prawnych następców, w tym Activision Blizzard). Dołączony silnik jest open source, napisany od podstaw poprzez obserwację zachowania oryginalnego programu, bez użycia jakiegokolwiek kodu z oryginalnej gry. Oryginalne pliki zasobów NIE są przeze mnie rozpowszechniane — każdy musi je zdobyć z własnej legalnej kopii oryginalnego oprogramowania. Ten projekt nie jest powiązany, sponsorowany, popierany ani w żaden sposób stowarzyszony z Sierra, Dynamix, Activision Blizzard, ani żadnym obecnym posiadaczem praw.",
       "footer.eyebrow": "Więcej projektów Yoshiki",
       "footer.title": "Inne projekty",
-      "strip.label": "Inne projekty",
+      "strip.label": "Projekty",
       "strip.horas": "Aplikacja do rejestracji czasu pracy — wejście/wyjście, automatyczne wykrywanie WiFi, eksport WhatsApp, 97 motywów.",
       "shortHoras": "Rejestracja czasu, wykrywanie WiFi",
       "short3dmanager": "Wyceny, produkcja i klienci",
@@ -1232,7 +1239,7 @@
       "legal.body": "本プロジェクトは非営利・非商用のファン制作物であり、\"Johnny Castaway\"／\"Screen Antics\"シリーズへの愛とノスタルジーのみを動機として作られています。オリジナルゲーム、そのグラフィック、サウンド、キャラクター、商標についていかなる権利も主張しません — これらの権利はSierra On-Line／Dynamix（およびActivision Blizzardを含むその法的承継者）に帰属します。同梱のエンジンはオープンソースであり、オリジナルゲームのコードを一切使用せず、オリジナルプログラムの挙動を観察してゼロから書き起こしたものです。オリジナルのリソースファイルは私からは配布されません — 各自が正規のオリジナルソフトウェアのコピーから入手する必要があります。本プロジェクトはSierra、Dynamix、Activision Blizzard、または現在の権利保有者のいずれとも提携、後援、承認、その他いかなる関係もありません。",
       "footer.eyebrow": "Yoshikiの他の作品",
       "footer.title": "他のプロジェクト",
-      "strip.label": "他のプロジェクト",
+      "strip.label": "プロジェクト",
       "strip.horas": "勤怠管理アプリ — 出退勤、WiFi自動検出、WhatsApp書き出し、97種類のテーマ。",
       "shortHoras": "勤怠管理、WiFi自動検出",
       "short3dmanager": "見積もり・生産・顧客管理",
@@ -1319,7 +1326,7 @@
       "legal.body": "Dit project is een niet-commercieel fanwerk zonder winstoogmerk, puur gemaakt uit liefde en nostalgie voor de \"Johnny Castaway\" / \"Screen Antics\"-franchise. Ik claim geen enkel recht op het originele spel, de graphics, geluiden, personages of het handelsmerk ervan — die rechten behoren toe aan Sierra On-Line / Dynamix (en hun juridische opvolgers, waaronder Activision Blizzard). De meegeleverde engine is open source, vanaf nul geschreven door het gedrag van het originele programma te observeren, zonder enige code van het originele spel te gebruiken. De originele resourcebestanden worden NIET door mij verspreid — iedereen moet deze verkrijgen via een eigen legitieme kopie van de originele software. Dit project is op geen enkele manier verbonden aan, gesponsord door, goedgekeurd door, of geassocieerd met Sierra, Dynamix, Activision Blizzard, of enige huidige rechthebbende.",
       "footer.eyebrow": "Meer van Yoshiki",
       "footer.title": "Andere projecten",
-      "strip.label": "Andere projecten",
+      "strip.label": "Projecten",
       "strip.horas": "Prikklok-app — in-/uitklokken, automatische WiFi-detectie, WhatsApp-export, 97 thema's.",
       "shortHoras": "Prikklok, WiFi-detectie",
       "short3dmanager": "Offertes, productie en klanten",
@@ -1406,7 +1413,7 @@
       "legal.body": "Tento projekt je nekomerční fanouškovská práce bez zisku, vytvořená čistě z lásky a nostalgie ke značce \"Johnny Castaway\" / \"Screen Antics\". Nenárokuji si žádná práva k původní hře, jejím grafikám, zvukům, postavám ani ochranné známce — tato práva náleží Sierra On-Line / Dynamix (a jejich právním nástupcům, včetně Activision Blizzard). Přiložený engine je open source, napsaný od nuly pozorováním chování původního programu, bez použití jakéhokoli kódu z původní hry. Originální soubory zdrojů NEJSOU mnou distribuovány — každý si je musí opatřit z vlastní legitimní kopie originálního softwaru. Tento projekt není spojen, sponzorován, podporován ani žádným způsobem přidružen k Sierra, Dynamix, Activision Blizzard, ani žádnému současnému držiteli práv.",
       "footer.eyebrow": "Další projekty od Yoshiki",
       "footer.title": "Další projekty",
-      "strip.label": "Další projekty",
+      "strip.label": "Projekty",
       "strip.horas": "Aplikace pro docházku — příchod/odchod, automatická detekce WiFi, export do WhatsApp, 97 motivů.",
       "shortHoras": "Docházka, detekce WiFi",
       "short3dmanager": "Nabídky, výroba a klienti",
@@ -1493,7 +1500,7 @@
       "legal.body": "本项目是一个非商业、非营利的粉丝作品，纯粹出于对\"Johnny Castaway\"／\"Screen Antics\"系列的热爱与怀旧之情而制作。本人不对原版游戏及其图形、音效、角色或商标主张任何权利 — 这些权利归 Sierra On-Line／Dynamix（及其法定继承者，包括 Activision Blizzard）所有。所含引擎为开源代码，通过观察原版程序的行为从零编写，未使用原版游戏的任何代码。原始资源文件本人并不提供分发 — 每位用户都必须通过自己合法拥有的原版软件副本获取。本项目与 Sierra、Dynamix、Activision Blizzard 或任何现任权利持有者均无任何关联、赞助、背书或其他形式的联系。",
       "footer.eyebrow": "Yoshiki 的更多项目",
       "footer.title": "其他项目",
-      "strip.label": "其他项目",
+      "strip.label": "项目",
       "strip.horas": "打卡应用 — 上下班打卡、WiFi自动检测、WhatsApp导出、97种主题。",
       "shortHoras": "打卡、WiFi自动检测",
       "short3dmanager": "报价、生产与客户",
@@ -1580,7 +1587,7 @@
       "legal.body": "Этот проект — некоммерческая, бесприбыльная фанатская работа, созданная исключительно из любви и ностальгии по франшизе \"Johnny Castaway\" / \"Screen Antics\". Я не заявляю никаких прав на оригинальную игру, её графику, звуки, персонажей или товарный знак — эти права принадлежат Sierra On-Line / Dynamix (и их законным правопреемникам, включая Activision Blizzard). Включённый движок имеет открытый исходный код, написан с нуля путём наблюдения за поведением оригинальной программы, без использования какого-либо кода из оригинальной игры. Оригинальные файлы ресурсов НЕ распространяются мной — каждый должен получить их из собственной легальной копии оригинального программного обеспечения. Этот проект никак не связан, не спонсируется, не одобрен и никаким образом не ассоциирован с Sierra, Dynamix, Activision Blizzard или каким-либо текущим правообладателем.",
       "footer.eyebrow": "Другие проекты Yoshiki",
       "footer.title": "Другие проекты",
-      "strip.label": "Другие проекты",
+      "strip.label": "Проекты",
       "strip.horas": "Приложение для учёта времени — приход/уход, автоматическое определение по WiFi, экспорт в WhatsApp, 97 тем.",
       "shortHoras": "Учёт времени, определение по WiFi",
       "short3dmanager": "Сметы, производство и клиенты",
@@ -1667,7 +1674,7 @@
       "legal.body": "이 프로젝트는 \"Johnny Castaway\" / \"Screen Antics\" 시리즈에 대한 순수한 애정과 향수로 만들어진 비상업적, 비영리 팬 작품입니다. 원작 게임과 그 그래픽, 사운드, 캐릭터, 상표에 대해 어떠한 권리도 주장하지 않습니다 — 이러한 권리는 Sierra On-Line / Dynamix(및 Activision Blizzard를 포함한 법적 승계자)에 있습니다. 포함된 엔진은 오픈소스이며, 원작 게임의 어떤 코드도 사용하지 않고 원본 프로그램의 동작을 관찰하여 처음부터 작성되었습니다. 원본 리소스 파일은 본인이 배포하지 않습니다 — 각자 원본 소프트웨어의 정당한 사본을 통해 직접 구해야 합니다. 이 프로젝트는 Sierra, Dynamix, Activision Blizzard 또는 현재의 권리 보유자와 어떠한 제휴, 후원, 승인 또는 연관 관계도 없습니다.",
       "footer.eyebrow": "Yoshiki의 다른 프로젝트",
       "footer.title": "다른 프로젝트",
-      "strip.label": "다른 프로젝트",
+      "strip.label": "프로젝트",
       "strip.horas": "근태 관리 앱 — 출퇴근, WiFi 자동 감지, WhatsApp 내보내기, 97가지 테마.",
       "shortHoras": "근태 관리, WiFi 감지",
       "short3dmanager": "견적, 생산, 고객 관리",
@@ -1754,7 +1761,7 @@
       "legal.body": "यो परियोजना \"Johnny Castaway\" / \"Screen Antics\" फ्र्यान्चाइजीप्रतिको प्रेम र पुरानो सम्झनाबाट मात्र बनाइएको गैर-व्यावसायिक, नाफारहित फ्यान कार्य हो। म मूल खेल, यसको ग्राफिक्स, आवाज, पात्रहरू, वा ट्रेडमार्कमाथि कुनै पनि अधिकार दाबी गर्दिनँ — ती अधिकारहरू Sierra On-Line / Dynamix (र Activision Blizzard सहित तिनीहरूको कानुनी उत्तराधिकारीहरू) को हुन्। समावेश गरिएको इन्जिन खुला-स्रोत हो, मूल खेलको कुनै पनि कोड प्रयोग नगरी मूल प्रोग्रामको व्यवहार अवलोकन गरेर सुरुदेखि लेखिएको हो। मूल स्रोत फाइलहरू मैले वितरण गर्दिनँ — प्रत्येकले आफ्नै वैध मूल सफ्टवेयरको प्रतिबाट तिनीहरू प्राप्त गर्नुपर्छ। यो परियोजना Sierra, Dynamix, Activision Blizzard, वा हालको कुनै पनि अधिकार धारकसँग कुनै पनि किसिमले सम्बद्ध, प्रायोजित, समर्थित, वा जोडिएको छैन।",
       "footer.eyebrow": "Yoshiki का थप परियोजनाहरू",
       "footer.title": "अन्य परियोजनाहरू",
-      "strip.label": "अन्य परियोजनाहरू",
+      "strip.label": "परियोजनाहरू",
       "strip.horas": "समय दर्ता एप — भित्र/बाहिर, स्वचालित WiFi पहिचान, WhatsApp निर्यात, ९७ थिमहरू।",
       "shortHoras": "समय दर्ता, WiFi पहिचान",
       "short3dmanager": "मूल्य उद्धरण, उत्पादन र ग्राहक",
