@@ -81,6 +81,22 @@
   }
   .brand { font-family: var(--font-display); font-weight: 700; font-size: 1rem; }
   .langswitch { display: flex; gap: 4px; font-family: var(--font-mono); font-size: 0.78rem; }
+
+  /* OTHER PROJECTS STRIP */
+  .proj-strip-wrap { background: var(--paper-alt); border-bottom: 1px solid var(--line); padding: 14px 0; }
+  .proj-strip-label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 10px 0; padding: 0 24px; max-width: 772px; margin-left: auto; margin-right: auto; }
+  .proj-strip { display: flex; gap: 12px; overflow-x: auto; padding: 0 24px 4px 24px; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+  .proj-strip::-webkit-scrollbar { height: 6px; }
+  .proj-strip::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+  .proj-card-sm {
+    scroll-snap-align: start; flex: 0 0 auto; width: 220px; background: var(--card); border: 1px solid var(--line);
+    border-radius: 12px; padding: 14px 16px; text-decoration: none; display: flex; flex-direction: column; gap: 4px;
+    transition: transform 0.12s ease, border-color 0.12s ease;
+  }
+  .proj-card-sm:hover { transform: translateY(-2px); border-color: var(--ocean); }
+  .proj-card-sm .proj-icon-sm { font-size: 1.3rem; }
+  .proj-card-sm h4 { font-family: var(--font-display); font-size: 0.92rem; font-weight: 700; color: var(--ink); margin: 2px 0 0 0; }
+  .proj-card-sm span.desc { font-size: 0.78rem; color: var(--ink-soft); }
   .langswitch button {
     background: none; border: 1px solid transparent; cursor: pointer;
     padding: 5px 9px; border-radius: 7px; color: var(--ink-soft); font-family: inherit; font-size: inherit;
@@ -321,6 +337,27 @@
   </div>
 </div>
 
+<div class="proj-strip-wrap">
+  <p class="proj-strip-label" data-i18n="strip.label"></p>
+  <div class="proj-strip">
+    <a class="proj-card-sm" href="https://yoluha.github.io/horas/">
+      <span class="proj-icon-sm">⏱️</span>
+      <h4>Horas</h4>
+      <span class="desc" data-i18n="strip.horas"></span>
+    </a>
+    <a class="proj-card-sm" href="https://yoluha.github.io/3d-manager/">
+      <span class="proj-icon-sm">📐</span>
+      <h4>3D Manager</h4>
+      <span class="desc" data-i18n="footer.3dmanager"></span>
+    </a>
+    <a class="proj-card-sm" href="https://www.youtube.com/channel/UClEkyF0yv7Vyh2nRhKlvFlQ">
+      <span class="proj-icon-sm">🎧</span>
+      <h4>Yoshiki Beats</h4>
+      <span class="desc" data-i18n="footer.yoshikibeats"></span>
+    </a>
+  </div>
+</div>
+
 <!-- ================= HERO ================= -->
 <section class="hero">
   <div class="container hero-grid">
@@ -480,6 +517,12 @@
     </div>
     <div class="proj-grid">
       <div class="proj-card">
+        <span class="proj-icon">⏱️</span>
+        <h3>Horas</h3>
+        <p data-i18n="strip.horas"></p>
+        <a class="btn btn-primary btn-sm" href="https://yoluha.github.io/horas/" data-i18n="footer.visit"></a>
+      </div>
+      <div class="proj-card">
         <span class="proj-icon">📐</span>
         <h3>3D Manager</h3>
         <p data-i18n="footer.3dmanager"></p>
@@ -579,6 +622,8 @@
       "legal.body": "This project is a non-commercial, not-for-profit fan work, made purely out of love and nostalgia for the \"Johnny Castaway\" / \"Screen Antics\" franchise. I claim no rights whatsoever over the original game, its graphics, sounds, characters, or trademark — those rights belong to Sierra On-Line / Dynamix (and their legal successors, including Activision Blizzard). The included engine is open source, written from scratch by observing the original program's behavior, without using any code from the original game. The original resource files are NOT distributed by me — everyone must obtain them from their own legitimate copy of the original software. This project is not affiliated with, sponsored by, endorsed by, or associated in any way with Sierra, Dynamix, Activision Blizzard, or any current rights holder.",
       "footer.eyebrow": "More from Yoshiki",
       "footer.title": "Other projects",
+      "strip.label": "Other projects",
+      "strip.horas": "Time clock app — clock in/out, WiFi auto-detect, WhatsApp export, 97 themes.",
       "footer.3dmanager": "A quoting calculator for 3D printing services — works out real cost and minimum price automatically.",
       "footer.yoshikibeats": "Music channel — instrumental J-Trap, Djent, GARAN, and whatever else feels right at the time.",
       "footer.visit": "Visit ↗",
@@ -661,6 +706,8 @@
       "legal.body": "Este projeto é um trabalho de fãs, não-comercial e sem fins lucrativos, feito por puro amor e nostalgia pela franquia \"Johnny Castaway\" / \"Screen Antics\". Não reivindico qualquer direito sobre o jogo original, os seus gráficos, sons, personagens ou marca — esses direitos pertencem à Sierra On-Line / Dynamix (e aos seus sucessores legais, incluindo a Activision Blizzard). O motor incluído é código aberto, escrito de raiz através da observação do comportamento do programa original. Os ficheiros de recursos originais NÃO são distribuídos por mim — cada pessoa deve obtê-los a partir da sua própria cópia legítima. Este projeto não é afiliado, patrocinado, aprovado, nem associado de qualquer forma à Sierra, Dynamix, Activision Blizzard, ou a qualquer atual detentor dos direitos.",
       "footer.eyebrow": "Mais do Yoshiki",
       "footer.title": "Outros projetos",
+      "strip.label": "Outros projetos",
+      "strip.horas": "App de picar ponto — entrada/saída, deteção WiFi, envio por WhatsApp, 97 temas.",
       "footer.3dmanager": "Calculadora de orçamentos para serviços de impressão 3D — calcula automaticamente o custo real e o preço mínimo.",
       "footer.yoshikibeats": "Canal de música — instrumental J-Trap, Djent, GARAN, e o que apetecer no momento.",
       "footer.visit": "Visitar ↗",
@@ -743,6 +790,8 @@
       "legal.body": "Este proyecto es un trabajo de fans, no comercial y sin fines de lucro, hecho por puro amor y nostalgia hacia la franquicia \"Johnny Castaway\" / \"Screen Antics\". No reclamo ningún derecho sobre el juego original, sus gráficos, sonidos, personajes o marca — esos derechos pertenecen a Sierra On-Line / Dynamix (y a sus sucesores legales, incluyendo Activision Blizzard). El motor incluido es de código abierto, escrito desde cero mediante la observación del comportamiento del programa original. Los archivos de recursos originales NO son distribuidos por mí. Este proyecto no está afiliado, patrocinado, respaldado, ni asociado de ninguna manera con Sierra, Dynamix, Activision Blizzard, ni con ningún actual titular de los derechos.",
       "footer.eyebrow": "Más de Yoshiki",
       "footer.title": "Otros proyectos",
+      "strip.label": "Otros proyectos",
+      "strip.horas": "App de fichaje — entrada/salida, detección de WiFi, envío por WhatsApp, 97 temas.",
       "footer.3dmanager": "Calculadora de presupuestos para servicios de impresión 3D — calcula automáticamente el costo real y el precio mínimo.",
       "footer.yoshikibeats": "Canal de música — instrumental J-Trap, Djent, GARAN, y lo que apetezca en el momento.",
       "footer.visit": "Visitar ↗",
