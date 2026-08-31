@@ -91,9 +91,8 @@
     display: flex; align-items: center; justify-content: center; overflow: hidden;
   }
   .proj-strip-viewport { position: relative; flex: 1; min-width: 0; }
-  .proj-strip { display: flex; gap: 9px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
-  .proj-strip::-webkit-scrollbar { height: 6px; }
-  .proj-strip::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+  .proj-strip { display: flex; height: 100%; gap: 9px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
+  .proj-strip::-webkit-scrollbar { display: none; }
   .proj-card-sm {
     scroll-snap-align: start; flex: 0 0 auto; width: 142px; border: 1px solid var(--line);
     border-radius: 9px; padding: 8px 10px; text-decoration: none; display: flex; flex-direction: column; gap: 2px;
@@ -101,7 +100,7 @@
     transition: transform 0.12s ease, border-color 0.12s ease;
   }
   .proj-card-sm:hover { transform: translateY(-2px); border-color: var(--ocean); }
-  .proj-card-sm .proj-icon-sm { position: absolute; right: -6px; bottom: 4px; font-size: 4.6rem; margin: 0; opacity: 0.4; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5)); line-height: 1; }
+  .proj-card-sm .proj-icon-sm { position: absolute; right: -6px; bottom: 4px; font-size: 3.8rem; margin: 0; opacity: 0.4; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5)); line-height: 1; }
   .proj-card-sm h4 { position: relative; z-index: 1; font-family: var(--font-display); font-size: 0.76rem; font-weight: 700; color: #fff; margin: 0; text-shadow: 0 1px 4px rgba(0,0,0,0.7); }
   .proj-card-sm span.desc { position: relative; z-index: 1; font-size: 0.62rem; line-height: 1.25; color: rgba(255,255,255,0.88); text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
   .proj-nav {
@@ -1843,6 +1842,22 @@
     if (sel && sel.value !== lang) sel.value = lang;
     document.documentElement.setAttribute("lang", lang);
     try { localStorage.setItem("jcr-lang", lang); } catch (e) {}
+    fitProjLabel();
+  }
+
+  function fitProjLabel() {
+    var el = document.querySelector(".proj-strip-label");
+    if (!el) return;
+    el.style.fontSize = "";
+    var range = document.createRange();
+    range.selectNodeContents(el);
+    var natural = range.getBoundingClientRect().height;
+    if (!natural) return;
+    var scale = 90 / natural;
+    scale = Math.max(0.7, Math.min(scale, 2.2));
+    var rem = 0.5 * scale;
+    rem = Math.max(0.38, Math.min(rem, 0.95));
+    el.style.fontSize = rem.toFixed(3) + "rem";
   }
 
   (function () {
