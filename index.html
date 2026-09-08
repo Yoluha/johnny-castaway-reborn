@@ -37,7 +37,24 @@
     line-height: 1.55;
   }
 
-  body { overflow-x: hidden; }
+  body { overflow-x: hidden; position: relative; }
+
+  .aurora { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+  .aurora span {
+    position: absolute; width: 44vw; height: 44vw; max-width: 560px; max-height: 560px;
+    border-radius: 50%; filter: blur(90px); opacity: 0.28; animation: auroraDrift 24s ease-in-out infinite alternate;
+  }
+  .aurora span:nth-child(1) { background: var(--ocean); top: -14%; left: -8%; }
+  .aurora span:nth-child(2) { background: var(--sun); top: 20%; right: -14%; animation-delay: -8s; }
+  .aurora span:nth-child(3) { background: var(--driftwood); bottom: -18%; left: 26%; animation-delay: -16s; }
+  @keyframes auroraDrift {
+    0%   { transform: translate(0, 0) scale(1); }
+    50%  { transform: translate(4%, 6%) scale(1.12); }
+    100% { transform: translate(-4%, -3%) scale(0.95); }
+  }
+  @media (prefers-reduced-motion: reduce) { .aurora span { animation: none; } }
+
+  .proj-strip-wrap, .langbar, section, footer { position: relative; z-index: 1; }
 
   h1, h2, h3 {
     font-family: var(--font-display);
@@ -107,10 +124,20 @@
     scroll-snap-align: start; flex: 0 0 auto; width: 142px; border: 1px solid var(--line);
     border-radius: 9px; padding: 8px 10px; text-decoration: none; display: flex; flex-direction: column; gap: 2px;
     background-size: cover; background-position: center; position: relative; overflow: hidden;
-    transition: transform 0.12s ease, border-color 0.12s ease;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    opacity: 0; transform: translateY(14px); animation: projCardIn 0.5s ease forwards;
   }
-  .proj-card-sm:hover { transform: translateY(-2px); border-color: var(--ocean); }
-  .proj-card-sm .proj-icon-sm { position: absolute; right: -6px; bottom: 4px; font-size: 3.8rem; margin: 0; opacity: 0.4; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5)); line-height: 1; }
+  .proj-strip .proj-card-sm:nth-child(1) { animation-delay: 0.05s; }
+  .proj-strip .proj-card-sm:nth-child(2) { animation-delay: 0.12s; }
+  .proj-strip .proj-card-sm:nth-child(3) { animation-delay: 0.19s; }
+  .proj-strip .proj-card-sm:nth-child(4) { animation-delay: 0.26s; }
+  .proj-strip .proj-card-sm:nth-child(5) { animation-delay: 0.33s; }
+  @keyframes projCardIn { to { opacity: 1; transform: translateY(0); } }
+  .proj-card-sm:hover { transform: translateY(-3px) scale(1.02); border-color: var(--ocean); box-shadow: 0 10px 24px rgba(0,0,0,0.4); }
+  @media (prefers-reduced-motion: reduce) { .proj-card-sm { opacity: 1; transform: none; animation: none; } }
+  .proj-card-sm .proj-icon-sm { position: absolute; right: -6px; bottom: 4px; font-size: 3.8rem; margin: 0; opacity: 0.4; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5)); line-height: 1; animation: projIconFloat 5s ease-in-out infinite; }
+  @keyframes projIconFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-6px) rotate(-3deg); } }
+  @media (prefers-reduced-motion: reduce) { .proj-card-sm .proj-icon-sm { animation: none; } }
   .proj-card-sm h4 { position: relative; z-index: 1; font-family: var(--font-display); font-size: 0.76rem; font-weight: 700; color: #fff; margin: 0; text-shadow: 0 1px 4px rgba(0,0,0,0.7); }
   .proj-card-sm span.desc { position: relative; z-index: 1; font-size: 0.62rem; line-height: 1.25; color: rgba(255,255,255,0.88); text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
   .proj-nav {
@@ -138,7 +165,12 @@
   /* ============ HERO ============ */
   .hero { padding-top: 56px; }
   .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; }
-  .hero h1 { font-size: clamp(2.1rem, 4.6vw, 3rem); font-weight: 800; line-height: 1.05; }
+  .hero h1 { font-size: clamp(2.1rem, 4.6vw, 3rem); font-weight: 800; line-height: 1.05; animation: heroGlow 4s ease-in-out infinite; }
+  @keyframes heroGlow {
+    0%, 100% { text-shadow: 0 0 16px rgba(63,193,224,0.5), 0 0 4px rgba(63,193,224,0.3); }
+    50%      { text-shadow: 0 0 16px rgba(240,162,2,0.5), 0 0 4px rgba(240,162,2,0.3); }
+  }
+  @media (prefers-reduced-motion: reduce) { .hero h1 { animation: none; } }
   .hero .tagline { font-size: 1.08rem; }
 
   .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
@@ -351,6 +383,8 @@
 </style>
 </head>
 <body>
+
+<div class="aurora"><span></span><span></span><span></span></div>
 
 <div class="proj-strip-wrap">
   <div class="proj-strip-row">
