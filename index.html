@@ -39,20 +39,60 @@
 
   body { overflow-x: hidden; position: relative; }
 
-  .aurora { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
-  .aurora span {
-    position: absolute; width: 44vw; height: 44vw; max-width: 560px; max-height: 560px;
-    border-radius: 50%; filter: blur(90px); opacity: 0.28; animation: auroraDrift 24s ease-in-out infinite alternate;
+  .aurora {
+    position: fixed; left: 50%; top: 50%; width: 90vw; height: 90vw; max-width: 900px; max-height: 900px;
+    transform: translate(-50%, -50%); z-index: 0; overflow: visible; pointer-events: none; filter: blur(80px);
   }
-  .aurora span:nth-child(1) { background: var(--ocean); top: -14%; left: -8%; }
-  .aurora span:nth-child(2) { background: var(--sun); top: 20%; right: -14%; animation-delay: -8s; }
-  .aurora span:nth-child(3) { background: var(--driftwood); bottom: -18%; left: 26%; animation-delay: -16s; }
-  @keyframes auroraDrift {
-    0%   { transform: translate(0, 0) scale(1); }
-    50%  { transform: translate(4%, 6%) scale(1.12); }
-    100% { transform: translate(-4%, -3%) scale(0.95); }
+  .blob { position: absolute; inset: 0; transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform; }
+  .blob span {
+    position: absolute; top: 50%; left: 50%; opacity: 0.4; mix-blend-mode: screen;
+    animation: cloudMorph 10s ease-in-out infinite, cloudDrift 14s ease-in-out infinite;
   }
-  @media (prefers-reduced-motion: reduce) { .aurora span { animation: none; } }
+  .blob:nth-child(1) span {
+    width: 30%; height: 30%; margin: -21% 0 0 -26%;
+    background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.9), var(--ocean) 55%, transparent 78%);
+    animation-delay: 0s, 0s;
+  }
+  .blob:nth-child(2) span {
+    width: 24%; height: 24%; margin: -8% 0 0 6%;
+    background: radial-gradient(circle at 40% 40%, rgba(255,255,255,0.9), var(--sun) 55%, transparent 78%);
+    animation-delay: -1.5s, -2s;
+  }
+  .blob:nth-child(3) span {
+    width: 26%; height: 26%; margin: 4% 0 0 -20%;
+    background: radial-gradient(circle at 45% 45%, rgba(255,255,255,0.9), var(--driftwood) 55%, transparent 78%);
+    animation-delay: -3s, -4s;
+  }
+  .blob:nth-child(4) span {
+    width: 20%; height: 20%; margin: -22% 0 0 4%;
+    background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.9), var(--ocean) 55%, transparent 78%);
+    animation-delay: -4.5s, -6s;
+  }
+  .blob:nth-child(5) span {
+    width: 22%; height: 22%; margin: 8% 0 0 2%;
+    background: radial-gradient(circle at 40% 40%, rgba(255,255,255,0.9), var(--sun) 55%, transparent 78%);
+    animation-delay: -6s, -8s;
+  }
+  .blob:nth-child(6) span {
+    width: 18%; height: 18%; margin: -10% 0 0 -34%;
+    background: radial-gradient(circle at 45% 45%, rgba(255,255,255,0.9), var(--driftwood) 55%, transparent 78%);
+    animation-delay: -7.5s, -10s;
+  }
+  .blob:nth-child(7) span {
+    width: 20%; height: 20%; margin: 12% 0 0 -8%;
+    background: radial-gradient(circle at 40% 40%, rgba(255,255,255,0.9), var(--ocean) 55%, transparent 78%);
+    animation-delay: -9s, -12s;
+  }
+  @keyframes cloudMorph {
+    0%, 100% { border-radius: 42% 58% 61% 39% / 41% 39% 61% 59%; }
+    33%      { border-radius: 61% 39% 30% 70% / 60% 32% 68% 40%; }
+    66%      { border-radius: 30% 70% 70% 30% / 52% 62% 38% 48%; }
+  }
+  @keyframes cloudDrift {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50%      { transform: translate(9%, -12%) scale(1.22); }
+  }
+  @media (prefers-reduced-motion: reduce) { .blob span { animation: none; } }
 
   .proj-strip-wrap, .langbar, section, footer { position: relative; z-index: 1; }
 
@@ -384,7 +424,15 @@
 </head>
 <body>
 
-<div class="aurora"><span></span><span></span><span></span></div>
+<div class="aurora" id="aurora">
+  <div class="blob"><span></span></div>
+  <div class="blob"><span></span></div>
+  <div class="blob"><span></span></div>
+  <div class="blob"><span></span></div>
+  <div class="blob"><span></span></div>
+  <div class="blob"><span></span></div>
+  <div class="blob"><span></span></div>
+</div>
 
 <div class="proj-strip-wrap">
   <div class="proj-strip-row">
@@ -1892,6 +1940,50 @@ window.addEventListener('resize', () => document.querySelectorAll('.proj-strip')
     });
   }, { threshold: 0.12 });
   targets.forEach(el => observer.observe(el));
+})();
+
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const blobs = Array.from(document.querySelectorAll('.aurora .blob'));
+  if (!blobs.length) return;
+
+  const PUSH_RADIUS = 200;
+  const PUSH_STRENGTH = 90;
+  let homes = [];
+
+  function measureHomes() {
+    homes = blobs.map(el => {
+      const r = el.getBoundingClientRect();
+      return { el, cx: r.left + r.width / 2, cy: r.top + r.height / 2 };
+    });
+  }
+  measureHomes();
+  window.addEventListener('resize', measureHomes);
+
+  function pushFrom(px, py) {
+    homes.forEach(h => {
+      const dx = h.cx - px;
+      const dy = h.cy - py;
+      const dist = Math.hypot(dx, dy) || 1;
+      if (dist < PUSH_RADIUS) {
+        const force = (1 - dist / PUSH_RADIUS) * PUSH_STRENGTH;
+        h.el.style.transform = `translate(${(dx / dist) * force}px, ${(dy / dist) * force}px)`;
+      } else {
+        h.el.style.transform = 'translate(0, 0)';
+      }
+    });
+  }
+  function release() {
+    homes.forEach(h => { h.el.style.transform = 'translate(0, 0)'; });
+  }
+
+  window.addEventListener('mousemove', (e) => pushFrom(e.clientX, e.clientY));
+  window.addEventListener('mouseleave', release);
+  window.addEventListener('touchmove', (e) => {
+    const t = e.touches[0];
+    if (t) pushFrom(t.clientX, t.clientY);
+  }, { passive: true });
+  window.addEventListener('touchend', release);
 })();
 </script>
 </body>
