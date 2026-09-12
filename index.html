@@ -156,6 +156,7 @@
     letter-spacing: 0.04em; line-height: 1; text-transform: uppercase; color: var(--ink-soft); margin: 0; flex-shrink: 0;
     display: flex; align-items: center; justify-content: center; overflow: hidden;
     animation: projLabelGlow 1.5s ease-in-out infinite;
+    text-decoration: none; cursor: pointer;
   }
   .proj-strip-viewport { position: relative; flex: 1; min-width: 0; }
   .proj-strip { display: flex; height: 100%; gap: 9px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
@@ -436,7 +437,7 @@
 
 <div class="proj-strip-wrap">
   <div class="proj-strip-row">
-  <p class="proj-strip-label" data-i18n="strip.label"></p>
+  <a class="proj-strip-label" data-i18n="strip.label" href="https://yoluha.github.io/"></a>
   <div class="proj-strip-viewport">
   <button type="button" class="proj-nav proj-nav-prev" onclick="scrollProjStrip(this,-1)" aria-label="Previous" hidden>&#8249;</button>
   <div class="proj-strip" onscroll="updateProjNav(this)">
@@ -450,12 +451,12 @@
       <h4>3D Manager</h4>
       <span class="desc" data-i18n="short3dmanager"></span>
     </a>
-    <a class="proj-card-sm grad-yb" href="https://www.youtube.com/channel/UClEkyF0yv7Vyh2nRhKlvFlQ">
+    <a class="proj-card-sm grad-yb" href="https://yoluha.github.io/yoshiki-beats/">
       <span class="proj-icon-sm">🎧</span>
       <h4>Yoshiki Beats</h4>
       <span class="desc" data-i18n="shortYoshiki"></span>
     </a>
-    <a class="proj-card-sm grad-synth" href="https://www.youtube.com/@SynthY%C3%98SHI">
+    <a class="proj-card-sm grad-synth" href="https://yoluha.github.io/synth-yoshi/">
       <span class="proj-icon-sm">🌆</span>
       <h4>Synth YØSHI</h4>
       <span class="desc" data-i18n="shortSynth"></span>
