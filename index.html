@@ -184,7 +184,7 @@
   @keyframes projCardIn { to { opacity: 1; transform: translateY(0); } }
   .proj-card-sm:hover { transform: translateY(-3px) scale(1.02); border-color: var(--ocean); box-shadow: 0 10px 24px rgba(0,0,0,0.4); }
   @media (prefers-reduced-motion: reduce) { .proj-card-sm { opacity: 1; transform: none; animation: none; } }
-  .proj-card-sm .proj-icon-sm { position: absolute; right: -6px; bottom: 4px; width: 60px; height: 60px; margin: 0; opacity: 0.45; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5)); border-radius: 14px; object-fit: cover; animation: projIconFloat 5s ease-in-out infinite; }
+  .proj-card-sm .proj-icon-sm { position: absolute; right: -6px; bottom: 4px; width: 60px; height: 60px; margin: 0; opacity: 0.45; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5)); border-radius: 50%; object-fit: cover; animation: projIconFloat 5s ease-in-out infinite; }
   @keyframes projIconFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-6px) rotate(-3deg); } }
   @media (prefers-reduced-motion: reduce) { .proj-card-sm .proj-icon-sm { animation: none; } }
   .proj-card-sm h4 { position: relative; z-index: 1; font-family: var(--font-display); font-size: 0.76rem; font-weight: 700; color: #fff; margin: 0; text-shadow: 0 1px 4px rgba(0,0,0,0.7); }
