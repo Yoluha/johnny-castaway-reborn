@@ -198,6 +198,7 @@
   .proj-card-sm.grad-3d { background-image: linear-gradient(165deg, rgba(8,11,16,0.35), rgba(22,52,48,0.55) 55%, rgba(201,106,46,0.75) 100%), linear-gradient(135deg, #163430, #2e8f87 60%, #c96a2e); }
   .proj-card-sm.grad-yb { background-image: linear-gradient(165deg, rgba(8,11,16,0.35), rgba(48,29,99,0.6) 55%, rgba(216,38,140,0.75) 100%), linear-gradient(135deg, #15102b, #4c1d95 55%, #d8268c); }
   .proj-card-sm.grad-synth { background-image: linear-gradient(165deg, rgba(8,11,16,0.4), rgba(30,10,60,0.6) 55%, rgba(255,61,127,0.7) 100%), linear-gradient(150deg, #0d0221, #5b1a8c 55%, #ff3d7f); }
+  .proj-card-sm.grad-lista { background-image: linear-gradient(165deg, rgba(8,11,16,0.35), rgba(74,60,10,0.55) 55%, rgba(184,134,11,0.8) 100%), linear-gradient(150deg, #10151d, #4a3c0a 55%, #b8860b); }
   .langswitch select {
     background: var(--card); color: var(--ink); border: 1px solid var(--line); border-radius: 7px;
     padding: 6px 8px; font-family: var(--font-mono); font-size: 0.78rem; cursor: pointer;
@@ -462,6 +463,11 @@
       <h4>Synth YØSHI</h4>
       <span class="desc" data-i18n="shortSynth"></span>
     </a>
+    <a class="proj-card-sm grad-lista" href="https://yoluha.github.io/lista-pedidos/">
+      <img class="proj-icon-sm" src="https://yoluha.github.io/lista-pedidos/icon-192.png" alt="">
+      <h4>Lista</h4>
+      <span class="desc" data-i18n="shortLista"></span>
+    </a>
   </div>
   <button type="button" class="proj-nav proj-nav-next" onclick="scrollProjStrip(this,1)" aria-label="Next" hidden>&#8250;</button>
   </div>
@@ -720,6 +726,7 @@
       "short3dmanager": "Quotes, production and clients",
       "shortYoshiki": "Instrumental J-Trap and GΛRĀN",
       "shortSynth": "Darksynth and ChillSynth",
+      "shortLista": "Work order lists, offline",
       "footer.source": "💻 Source code & installer on GitHub",
       "footer.contact": "Questions, issues, or suggestions — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -802,6 +809,7 @@
       "short3dmanager": "Orçamentos, produção e clientes",
       "shortYoshiki": "Instrumentais J-Trap e GΛRĀN",
       "shortSynth": "Darksynth e ChillSynth",
+      "shortLista": "Listas de encomendas para o trabalho",
       "footer.source": "💻 Código-fonte e instalador no GitHub",
       "footer.contact": "Dúvidas, problemas, ou sugestões — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -884,6 +892,7 @@
       "short3dmanager": "Presupuestos, producción y clientes",
       "shortYoshiki": "Instrumental J-Trap y GΛRĀN",
       "shortSynth": "Darksynth y ChillSynth",
+      "shortLista": "Listas de pedidos para el trabajo",
       "footer.source": "💻 Código fuente e instalador en GitHub",
       "footer.contact": "Preguntas, problemas, o sugerencias — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -966,6 +975,7 @@
       "short3dmanager": "Devis, production et clients",
       "shortYoshiki": "Instrumentaux J-Trap et GΛRĀN",
       "shortSynth": "Darksynth et ChillSynth",
+      "shortLista": "Listes de commandes pour le travail",
       "footer.source": "💻 Code source et installateur sur GitHub",
       "footer.contact": "Questions, problèmes, ou suggestions — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1048,6 +1058,7 @@
       "short3dmanager": "Angebote, Produktion und Kunden",
       "shortYoshiki": "Instrumental J-Trap und GΛRĀN",
       "shortSynth": "Darksynth und ChillSynth",
+      "shortLista": "Bestelllisten für die Arbeit",
       "footer.source": "💻 Quellcode & Installer auf GitHub",
       "footer.contact": "Fragen, Probleme, oder Vorschläge — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1130,6 +1141,7 @@
       "short3dmanager": "Preventivi, produzione e clienti",
       "shortYoshiki": "Strumentali J-Trap e GΛRĀN",
       "shortSynth": "Darksynth e ChillSynth",
+      "shortLista": "Liste ordini per il lavoro",
       "footer.source": "💻 Codice sorgente e installer su GitHub",
       "footer.contact": "Domande, problemi, o suggerimenti — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1212,6 +1224,7 @@
       "short3dmanager": "Wyceny, produkcja i klienci",
       "shortYoshiki": "Instrumentale J-Trap i GΛRĀN",
       "shortSynth": "Darksynth i ChillSynth",
+      "shortLista": "Listy zamówień do pracy",
       "footer.source": "💻 Kod źródłowy i instalator na GitHub",
       "footer.contact": "Pytania, problemy, lub sugestie — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1294,6 +1307,7 @@
       "short3dmanager": "見積もり・生産・顧客管理",
       "shortYoshiki": "インストゥルメンタルのJ-TrapとGΛRĀN",
       "shortSynth": "Darksynth と ChillSynth",
+      "shortLista": "仕事の注文リスト",
       "footer.source": "💻 GitHubでソースコードとインストーラーを公開中",
       "footer.contact": "ご質問・不具合報告・ご提案は — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1376,6 +1390,7 @@
       "short3dmanager": "Offertes, productie en klanten",
       "shortYoshiki": "Instrumentale J-Trap en GΛRĀN",
       "shortSynth": "Darksynth en ChillSynth",
+      "shortLista": "Bestellijsten voor het werk",
       "footer.source": "💻 Broncode & installatieprogramma op GitHub",
       "footer.contact": "Vragen, problemen, of suggesties — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1458,6 +1473,7 @@
       "short3dmanager": "Nabídky, výroba a klienti",
       "shortYoshiki": "Instrumentální J-Trap a GΛRĀN",
       "shortSynth": "Darksynth a ChillSynth",
+      "shortLista": "Objednávkové seznamy do práce",
       "footer.source": "💻 Zdrojový kód a instalátor na GitHubu",
       "footer.contact": "Dotazy, problémy, nebo návrhy — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1540,6 +1556,7 @@
       "short3dmanager": "报价、生产与客户",
       "shortYoshiki": "J-Trap 与 GΛRĀN 器乐",
       "shortSynth": "Darksynth 与 ChillSynth",
+      "shortLista": "工作订单清单",
       "footer.source": "💻 在 GitHub 上查看源代码与安装程序",
       "footer.contact": "问题、故障反馈或建议 — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1622,6 +1639,7 @@
       "short3dmanager": "Сметы, производство и клиенты",
       "shortYoshiki": "Инструментал J-Trap и GΛRĀN",
       "shortSynth": "Darksynth и ChillSynth",
+      "shortLista": "Списки заказов для работы",
       "footer.source": "💻 Исходный код и установщик на GitHub",
       "footer.contact": "Вопросы, проблемы, или предложения — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1704,6 +1722,7 @@
       "short3dmanager": "견적, 생산, 고객 관리",
       "shortYoshiki": "인스트루멘탈 J-Trap과 GΛRĀN",
       "shortSynth": "Darksynth와 ChillSynth",
+      "shortLista": "업무용 주문 목록",
       "footer.source": "💻 GitHub에서 소스 코드 및 설치 프로그램 확인",
       "footer.contact": "질문, 문제, 또는 제안 — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1786,6 +1805,7 @@
       "short3dmanager": "मूल्य उद्धरण, उत्पादन र ग्राहक",
       "shortYoshiki": "इन्स्ट्रुमेन्टल J-Trap र GΛRĀN",
       "shortSynth": "Darksynth र ChillSynth",
+      "shortLista": "कामको लागि अर्डर सूची",
       "footer.source": "💻 GitHub मा स्रोत कोड र इन्स्टलर",
       "footer.contact": "प्रश्न, समस्या, वा सुझावहरू — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     }
