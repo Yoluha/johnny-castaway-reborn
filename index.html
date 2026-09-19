@@ -182,6 +182,7 @@
   .proj-strip .proj-card-sm:nth-child(3) { animation-delay: 0.19s; }
   .proj-strip .proj-card-sm:nth-child(4) { animation-delay: 0.26s; }
   .proj-strip .proj-card-sm:nth-child(5) { animation-delay: 0.33s; }
+  .proj-strip .proj-card-sm:nth-child(6) { animation-delay: 0.40s; }
   @keyframes projCardIn { to { opacity: 1; transform: translateY(0); } }
   .proj-card-sm::before {
     content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
@@ -217,6 +218,7 @@
   .proj-card-sm.grad-yb { --glow: rgba(168,120,30,0.55); background-image: linear-gradient(165deg, rgba(8,11,16,0.35), rgba(109,31,58,0.6) 55%, rgba(168,120,30,0.75) 100%), linear-gradient(135deg, #1a0d12, #6d1f3a 55%, #a8781e); }
   .proj-card-sm.grad-synth { --glow: rgba(255,61,127,0.55); background-image: linear-gradient(165deg, rgba(8,11,16,0.4), rgba(30,10,60,0.6) 55%, rgba(255,61,127,0.7) 100%), linear-gradient(150deg, #0d0221, #5b1a8c 55%, #ff3d7f); }
   .proj-card-sm.grad-lista { --glow: rgba(184,134,11,0.55); background-image: linear-gradient(165deg, rgba(8,11,16,0.35), rgba(74,60,10,0.55) 55%, rgba(184,134,11,0.8) 100%), linear-gradient(150deg, #10151d, #4a3c0a 55%, #b8860b); }
+  .proj-card-sm.grad-sushi { --glow: rgba(210,162,76,0.55); background-image: linear-gradient(165deg, rgba(8,11,16,0.35), rgba(30,24,10,0.55) 55%, rgba(210,162,76,0.75) 100%), linear-gradient(150deg, #12171a, #4a3a1a 55%, #d2a24c); }
   .langswitch select {
     background: var(--card); color: var(--ink); border: 1px solid var(--line); border-radius: 7px;
     padding: 6px 8px; font-family: var(--font-mono); font-size: 0.78rem; cursor: pointer;
@@ -486,6 +488,11 @@
       <h4>Lista</h4>
       <span class="desc" data-i18n="shortLista"></span>
     </a>
+    <a class="proj-card-sm grad-sushi" href="https://yoluha.github.io/portfolio-sushi/">
+      <img class="proj-icon-sm" src="https://yoluha.github.io/portfolio-sushi/icon.svg" alt="">
+      <h4>Lucas Amaral</h4>
+      <span class="desc" data-i18n="shortLucas"></span>
+    </a>
   </div>
   <button type="button" class="proj-nav proj-nav-next" onclick="scrollProjStrip(this,1)" aria-label="Next" hidden>&#8250;</button>
   </div>
@@ -754,6 +761,7 @@
       "shortYoshiki": "Instrumental J-Trap and GΛRĀN",
       "shortSynth": "Darksynth and ChillSynth",
       "shortLista": "Work order lists, offline",
+      "shortLucas": "Head chef and sushi chef",
       "footer.source": "💻 Source code & installer on GitHub",
       "footer.contact": "Questions, issues, or suggestions — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -837,6 +845,7 @@
       "shortYoshiki": "Instrumentais J-Trap e GΛRĀN",
       "shortSynth": "Darksynth e ChillSynth",
       "shortLista": "Listas de encomendas para o trabalho",
+      "shortLucas": "Chef de cozinha e sushi chef",
       "footer.source": "💻 Código-fonte e instalador no GitHub",
       "footer.contact": "Dúvidas, problemas, ou sugestões — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -920,6 +929,7 @@
       "shortYoshiki": "Instrumental J-Trap y GΛRĀN",
       "shortSynth": "Darksynth y ChillSynth",
       "shortLista": "Listas de pedidos para el trabajo",
+      "shortLucas": "Chef de cocina y sushi chef",
       "footer.source": "💻 Código fuente e instalador en GitHub",
       "footer.contact": "Preguntas, problemas, o sugerencias — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1003,6 +1013,7 @@
       "shortYoshiki": "Instrumentaux J-Trap et GΛRĀN",
       "shortSynth": "Darksynth et ChillSynth",
       "shortLista": "Listes de commandes pour le travail",
+      "shortLucas": "Chef cuisinier et chef sushi",
       "footer.source": "💻 Code source et installateur sur GitHub",
       "footer.contact": "Questions, problèmes, ou suggestions — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1086,6 +1097,7 @@
       "shortYoshiki": "Instrumental J-Trap und GΛRĀN",
       "shortSynth": "Darksynth und ChillSynth",
       "shortLista": "Bestelllisten für die Arbeit",
+      "shortLucas": "Küchenchef und Sushi-Meister",
       "footer.source": "💻 Quellcode & Installer auf GitHub",
       "footer.contact": "Fragen, Probleme, oder Vorschläge — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1169,6 +1181,7 @@
       "shortYoshiki": "Strumentali J-Trap e GΛRĀN",
       "shortSynth": "Darksynth e ChillSynth",
       "shortLista": "Liste ordini per il lavoro",
+      "shortLucas": "Chef di cucina e sushi chef",
       "footer.source": "💻 Codice sorgente e installer su GitHub",
       "footer.contact": "Domande, problemi, o suggerimenti — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1252,6 +1265,7 @@
       "shortYoshiki": "Instrumentale J-Trap i GΛRĀN",
       "shortSynth": "Darksynth i ChillSynth",
       "shortLista": "Listy zamówień do pracy",
+      "shortLucas": "Szef kuchni i mistrz sushi",
       "footer.source": "💻 Kod źródłowy i instalator na GitHub",
       "footer.contact": "Pytania, problemy, lub sugestie — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1335,6 +1349,7 @@
       "shortYoshiki": "インストゥルメンタルのJ-TrapとGΛRĀN",
       "shortSynth": "Darksynth と ChillSynth",
       "shortLista": "仕事の注文リスト",
+      "shortLucas": "料理長・寿司職人",
       "footer.source": "💻 GitHubでソースコードとインストーラーを公開中",
       "footer.contact": "ご質問・不具合報告・ご提案は — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1418,6 +1433,7 @@
       "shortYoshiki": "Instrumentale J-Trap en GΛRĀN",
       "shortSynth": "Darksynth en ChillSynth",
       "shortLista": "Bestellijsten voor het werk",
+      "shortLucas": "Chef-kok en sushichef",
       "footer.source": "💻 Broncode & installatieprogramma op GitHub",
       "footer.contact": "Vragen, problemen, of suggesties — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1501,6 +1517,7 @@
       "shortYoshiki": "Instrumentální J-Trap a GΛRĀN",
       "shortSynth": "Darksynth a ChillSynth",
       "shortLista": "Objednávkové seznamy do práce",
+      "shortLucas": "Šéfkuchař a sushi mistr",
       "footer.source": "💻 Zdrojový kód a instalátor na GitHubu",
       "footer.contact": "Dotazy, problémy, nebo návrhy — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1584,6 +1601,7 @@
       "shortYoshiki": "J-Trap 与 GΛRĀN 器乐",
       "shortSynth": "Darksynth 与 ChillSynth",
       "shortLista": "工作订单清单",
+      "shortLucas": "主厨兼寿司师傅",
       "footer.source": "💻 在 GitHub 上查看源代码与安装程序",
       "footer.contact": "问题、故障反馈或建议 — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1667,6 +1685,7 @@
       "shortYoshiki": "Инструментал J-Trap и GΛRĀN",
       "shortSynth": "Darksynth и ChillSynth",
       "shortLista": "Списки заказов для работы",
+      "shortLucas": "Шеф-повар и суши-шеф",
       "footer.source": "💻 Исходный код и установщик на GitHub",
       "footer.contact": "Вопросы, проблемы, или предложения — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1750,6 +1769,7 @@
       "shortYoshiki": "인스트루멘탈 J-Trap과 GΛRĀN",
       "shortSynth": "Darksynth와 ChillSynth",
       "shortLista": "업무용 주문 목록",
+      "shortLucas": "총주방장 겸 스시 셰프",
       "footer.source": "💻 GitHub에서 소스 코드 및 설치 프로그램 확인",
       "footer.contact": "질문, 문제, 또는 제안 — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     },
@@ -1833,6 +1853,7 @@
       "shortYoshiki": "इन्स्ट्रुमेन्टल J-Trap र GΛRĀN",
       "shortSynth": "Darksynth र ChillSynth",
       "shortLista": "कामको लागि अर्डर सूची",
+      "shortLucas": "प्रधान सेफ र सुशी सेफ",
       "footer.source": "💻 GitHub मा स्रोत कोड र इन्स्टलर",
       "footer.contact": "प्रश्न, समस्या, वा सुझावहरू — Lucas Yoshiki Amaral · yoluha91@gmail.com"
     }
@@ -1892,6 +1913,7 @@
     try { localStorage.setItem("jcr-lang", lang); } catch (e) {}
     fitProjLabel();
   }
+  window.setLanguage = setLanguage;
 
   function fitProjLabel() {
     var el = document.querySelector(".proj-strip-label");
